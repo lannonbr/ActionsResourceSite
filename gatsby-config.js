@@ -1,9 +1,23 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+const path = require("path")
 
 module.exports = {
-  /* Your site config here */
+  plugins: [
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `docs`,
+        path: path.resolve(__dirname, "docs"),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        google: {
+          families: ["Oswald", "Lato"],
+        },
+      },
+    },
+  ],
 }

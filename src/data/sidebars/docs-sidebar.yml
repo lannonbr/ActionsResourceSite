@@ -1,0 +1,9 @@
+- title: Docs
+  link: /docs/
+- title: Reference Guides
+  link: /docs/guides/
+  items:
+    - title: Triggers
+      link: /docs/triggers/
+    - title: Docker Actions
+      link: /docs/docker-actions/
