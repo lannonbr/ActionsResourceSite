@@ -6,14 +6,18 @@ import GlobalStyles from "../utils/globalStyles"
 const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid lightgray;
 
   ul {
+    padding-left: 0;
     list-style: none;
     display: flex;
     li {
       margin-left: 20px;
-      font-size: 24px;
+      font-size: 18px;
       a {
         text-decoration: none;
       }
@@ -21,12 +25,24 @@ const Header = styled.header`
   }
 `
 
+const LayoutContainer = styled.div`
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  min-height: 100vh;
+`
+
 const Layout = ({ children }) => (
-  <div>
+  <LayoutContainer>
     <GlobalStyles />
     <Header>
-      <h1>
-        <Link to={"/"}>GitHub Actions Resource Site</Link>
+      <h1
+        style={{
+          fontSize: 20,
+        }}
+      >
+        <Link to={"/"}>
+          <abbr title={`GitHub Actions Resource Site`}>GARS</abbr>
+        </Link>
       </h1>
       <ul>
         <li>
@@ -38,12 +54,7 @@ const Layout = ({ children }) => (
       </ul>
     </Header>
     <main>{children}</main>
-    <footer>
-      <p>
-        Created by <a href="https://lannonbr.com">Benjamin Lannon</a>
-      </p>
-    </footer>
-  </div>
+  </LayoutContainer>
 )
 
 export default Layout

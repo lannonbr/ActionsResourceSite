@@ -6,6 +6,15 @@ const GlobalStyles = createGlobalStyle`
     --bodyFont: 'Lato', Arial, Helvetica, sans-serif;
   }
   
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  p {
+    padding: 10px 0;
+  }
+
   body {
     font-family: var(--bodyFont);
   }

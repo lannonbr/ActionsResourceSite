@@ -9,8 +9,13 @@ export default () => {
     <Layout>
       <SidebarPageContainer>
         <Sidebar itemList={TutorialSidebar} />
-        <div>
+        <div
+          style={{
+            lineHeight: 1.6,
+          }}
+        >
           <h1>Tutorials</h1>
+          <p>Stub</p>
         </div>
       </SidebarPageContainer>
     </Layout>

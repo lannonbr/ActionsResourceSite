@@ -10,7 +10,8 @@ export default () => {
       <SidebarPageContainer>
         <Sidebar itemList={DocsSidebar} />
         <div>
-          <h1>Docs!!!</h1>
+          <h1>Docs</h1>
+          <p>Stub</p>
         </div>
       </SidebarPageContainer>
     </Layout>
