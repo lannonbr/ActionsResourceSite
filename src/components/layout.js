@@ -51,6 +51,9 @@ const Layout = ({ children }) => (
         <li>
           <Link to={"/tutorial/"}>Tutorials</Link>
         </li>
+        <li>
+          <Link to={"/changelog/"}>Changelog</Link>
+        </li>
       </ul>
     </Header>
     <main>{children}</main>

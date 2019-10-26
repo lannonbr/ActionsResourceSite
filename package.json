@@ -16,11 +16,13 @@
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "babel-plugin-styled-components": "^1.10.6",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.16.1",
     "gatsby-plugin-mdx": "^1.0.52",
     "gatsby-plugin-styled-components": "^3.1.11",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.33",
+    "gatsby-source-graphql": "^2.1.20",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "styled-components": "^4.4.0"

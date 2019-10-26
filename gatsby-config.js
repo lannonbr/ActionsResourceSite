@@ -1,5 +1,7 @@
 const path = require("path")
 
+require("dotenv").config()
+
 module.exports = {
   plugins: [
     `gatsby-plugin-mdx`,
@@ -16,6 +18,17 @@ module.exports = {
       options: {
         google: {
           families: ["Oswald", "Lato"],
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: "Fauna",
+        fieldName: "fauna",
+        url: "https://graphql.fauna.com/graphql",
+        headers: {
+          Authorization: `Bearer ${process.env.FAUNADB_TOKEN}`,
         },
       },
     },
