@@ -1,7 +1,7 @@
 name: Changelog Update
 on:
   schedule:
-    - cron: "0 * * * * "
+    - cron: "10 * * * * "
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       env:
         FAUNADB_TOKEN: ${{ secrets.FAUNADB_TOKEN }}
     - name: Build if new posts
-      if: steps.changelog_pull.outputs.newFaunaPostsAdded != "0"
+      if: steps.changelog_pull.outputs.newFaunaPostsAdded != 0
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
