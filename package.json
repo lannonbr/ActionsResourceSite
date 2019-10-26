@@ -23,6 +23,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-source-graphql": "^2.1.20",
+    "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "styled-components": "^4.4.0"

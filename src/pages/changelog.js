@@ -1,8 +1,17 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import moment from "moment"
 
-const ChangelogPage = props => {
+const ChangelogPage = ({ data }) => {
+  let changelogEntries = data.fauna.getAllChangelogEntries.data
+
+  changelogEntries.forEach(entry => {
+    entry.timestamp = moment(entry.date, "MMMM D, YYYY").unix()
+  })
+
+  changelogEntries.sort((a, b) => b.timestamp - a.timestamp)
+
   return (
     <Layout>
       <div
@@ -22,7 +31,7 @@ const ChangelogPage = props => {
           </a>
         </p>
         <ul>
-          {props.data.fauna.getAllChangelogEntries.data.map(entry => {
+          {changelogEntries.map(entry => {
             let { date, href, title } = entry
 
             return (
