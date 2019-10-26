@@ -65,15 +65,24 @@ const getPostsFromFauna = async () => {
     .then(() => {
       return faunaPosts
     })
+    .catch(err => {
+      console.error("Failed to pull down fauna posts")
+      console.error(err)
+    })
 }
 
 // create a new document with the passed in data
 const addPostToFauna = async post => {
-  await client.query(
-    q.Create(q.Collection("changelog_entries"), {
-      data: post,
-    })
-  )
+  try {
+    await client.query(
+      q.Create(q.Collection("changelog_entries"), {
+        data: post,
+      })
+    )
+  } catch (err) {
+    console.error("Failed to create new fauna document")
+    console.log(err)
+  }
 }
 
 const run = async () => {
