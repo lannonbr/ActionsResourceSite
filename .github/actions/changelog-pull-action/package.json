@@ -4,9 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@actions/core": "^1.2.0",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "faunadb": "^2.9.3",
     "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "scripts": {
+    "build": "webpack"
   }
 }

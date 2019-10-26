@@ -1,0 +1,12 @@
+name: "Changelog Pull Action"
+author: "Benjamin Lannon <benjamin@lannonbr.com>"
+description: "Action to scrape GitHub Changelog and pass new entries into a Fauna database"
+outputs:
+  newFaunaPostsAdded:
+    description: "number of posts that were added to Fauna"
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: "download-cloud"
+  color: "gray-dark"

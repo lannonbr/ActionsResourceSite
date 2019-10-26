@@ -1,5 +1,6 @@
 const cheerio = require("cheerio")
 const fetch = require("node-fetch")
+const core = require("@actions/core")
 const faunadb = require("faunadb")
 const q = faunadb.query
 
@@ -79,6 +80,8 @@ const run = async () => {
   const actionPosts = await fetchBlogposts()
   const faunaPosts = await getPostsFromFauna()
 
+  let newPostsAdded = 0
+
   for (const actionPost of actionPosts) {
     // If actionPost is not in the faunaPosts array, add it to Fauna
     if (
@@ -87,8 +90,12 @@ const run = async () => {
       }) === undefined
     ) {
       await addPostToFauna(actionPost)
+      newPostsAdded++
     }
   }
+
+  // Set output of how many posts were added to Fauna so a following step can figure out if the site needs to be rebuilt
+  core.setOutput("newFaunaPostsAdded", newPostsAdded.toString())
 }
 
 run()
