@@ -1,5 +1,11 @@
 const cheerio = require("cheerio")
 const fetch = require("node-fetch")
+const faunadb = require("faunadb")
+const q = faunadb.query
+
+require("dotenv").config()
+
+const client = new faunadb.Client({ secret: process.env.FAUNADB_TOKEN })
 
 // Fetch blogposts in GitHub changelog related to GitHub Actions
 const fetchBlogposts = async () => {
@@ -43,6 +49,46 @@ const fetchBlogposts = async () => {
   return ActionsPosts
 }
 
-fetchBlogposts().then(ActionsPosts => {
-  console.log(ActionsPosts)
-})
+// hit the all_changelog_entries index and get the actual documents from such
+const getPostsFromFauna = async () => {
+  let faunaPosts = []
+
+  return client
+    .paginate(q.Match(q.Index("all_changelog_entries")))
+    .map(ref => q.Get(ref))
+    .each(page => {
+      page.map(doc => {
+        faunaPosts.push(doc)
+      })
+    })
+    .then(() => {
+      return faunaPosts
+    })
+}
+
+// create a new document with the passed in data
+const addPostToFauna = async post => {
+  await client.query(
+    q.Create(q.Collection("changelog_entries"), {
+      data: post,
+    })
+  )
+}
+
+const run = async () => {
+  const actionPosts = await fetchBlogposts()
+  const faunaPosts = await getPostsFromFauna()
+
+  for (const actionPost of actionPosts) {
+    // If actionPost is not in the faunaPosts array, add it to Fauna
+    if (
+      faunaPosts.find(post => {
+        return post.data.href === actionPost.href
+      }) === undefined
+    ) {
+      await addPostToFauna(actionPost)
+    }
+  }
+}
+
+run()

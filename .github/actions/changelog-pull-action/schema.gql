@@ -1,0 +1,9 @@
+type changelog_entries {
+  href: String!
+  title: String!
+  date: String!
+}
+
+type Query {
+  getAllChangelogEntries: [changelog_entries!]
+}
