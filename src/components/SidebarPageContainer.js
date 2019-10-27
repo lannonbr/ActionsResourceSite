@@ -11,6 +11,10 @@ const SidebarPageContainer = styled.div`
     padding-right: 10px;
     margin: 20px auto;
   }
+
+  p {
+    line-height: 1.6;
+  }
 `
 
 export default SidebarPageContainer
