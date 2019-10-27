@@ -4,8 +4,9 @@ require("dotenv").config()
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-mdx`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,6 +31,27 @@ module.exports = {
         headers: {
           Authorization: `Bearer ${process.env.FAUNADB_TOKEN}`,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+            },
+          },
+        ],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+            },
+          },
+        ],
       },
     },
   ],
