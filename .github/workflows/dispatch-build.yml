@@ -1,18 +1,14 @@
-name: Changelog Update
-on:
-  schedule:
-    - cron: "0 */6 * * * "
+name: dispatch build
+
+on: repository_dispatch
+
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: ./.github/actions/changelog-pull-action
-        id: changelog_pull
-        env:
-          FAUNADB_TOKEN: ${{ secrets.FAUNADB_TOKEN }}
-      - name: Build if new posts
-        if: steps.changelog_pull.outputs.newFaunaPostsAdded != 0
+      - name: Build
+        if: github.event.action == 'build'
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
