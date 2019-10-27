@@ -11,3 +11,5 @@
       link: /docs/js-actions/
     - title: Finding new Actions
       link: /docs/finding-new-actions/
+    - title: Repository Dispatch
+      link: /docs/repository-dispatch/
