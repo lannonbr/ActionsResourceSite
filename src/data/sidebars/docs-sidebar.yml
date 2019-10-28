@@ -13,3 +13,7 @@
       link: /docs/finding-new-actions/
     - title: Repository Dispatch
       link: /docs/repository-dispatch/
+    - title: Transferring data between Actions
+      link: /docs/transferring-data/
+    - title: action.yml
+      link: /docs/action-yml/

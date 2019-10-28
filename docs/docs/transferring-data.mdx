@@ -1,0 +1,59 @@
+---
+title: Transferring data between Actions
+---
+
+As an action can be composed with others, a good feature that exists is the ability to take some output from one action and use it in the workflow and other actions within a job.
+
+## Defining outputs
+
+an output can be done by using the '::set-output' command.
+
+Usage in shell:
+
+```shell
+echo '::set-output name=uploaded::true'
+```
+
+Usage in Actions Toolkit
+
+```js
+const core = require("@actions/core")
+
+core.setOutput("uploaded", "true")
+```
+
+the name will be a string that you define in the [action.yml](/docs/action-yml) file under the `outputs` field.
+
+## Example workflow
+
+Let's say we have an action that does some processing on data and then tries uploading some data. If the upload is success, we will define an output variable `file_uploaded` to be set to the string `true`
+
+Let's define this output in the action.yml file:
+
+```yml
+name: Data processor
+outputs:
+  file_uploaded:
+    description: field that will set whether a file was uploaded.
+```
+
+Now if we want to use it in the workflow, we can do such by accessing it from the step's context. do note you need to give a step an id if you wish to access outputs out of it.
+
+```yml
+# ...
+
+steps:
+  - uses: my-cool-action
+    id: cool_action
+  - name: Do only if cool_action uploaded data
+    if: steps.cool_action.outputs.file_uploaded == 'true'
+    run: echo "stuff was uploaded"
+```
+
+or you could also use it as an input to another action.
+
+```yml
+- uses: another_action
+  with:
+    was_file_uploaded: ${{ steps.cool_action.outputs.file_uploaded }}
+```
