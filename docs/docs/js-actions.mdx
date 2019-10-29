@@ -2,4 +2,48 @@
 title: JS Actions
 ---
 
-Stub
+When you wish to bundle up some code into an Action that is written in Javascript (or a language that compiles down to Javascript), JS Actions are a workflow to go down.
+
+## Usage
+
+The starting point of a JS Action is just writing a Node program. Compared to other serverless function tools, these programs can do whatever and can run side effects while traditional FaaS are request / response driven. Then, write the following in your `action.yml` file
+
+```yml
+# ...
+runs:
+  using: "node12"
+  main: "index.js"
+# ...
+```
+
+`node12` tells you that the runtime is going to be Node. `main` is the entrypoint for your node app.
+
+Then you can point the workflow file to use it.
+
+If it is in the same repo as your other code you wish, you can use as follows:
+
+```yml
+steps:
+  - name: Action
+    uses: ./path/to/action
+```
+
+or in another repo:
+
+```yml
+steps:
+  - name: Action
+    uses: lannonbr/My-Cool-Action
+```
+
+## Tools
+
+The Actions team wrote an [Actions Toolkit](https://github.com/actions/toolkit) that can be used with JS Actions. It can handle functionality such as I/O, getting inputs and setting outputs, connecting to the GitHub API, caching data, and many others.
+
+## Gotcha: node modules aren't installed automatically
+
+Do note, when working with a JS Action, it will not download node modules for you automatically. To deal with this, you have two choices:
+
+1. download them in the runner. you can run `npm install` to grab the various modules, but then you have to dive into the details of the Action which breaks a layer of abstraction around Actions. even if you can view the code of an Action, it is a self-contained thing and with such with a strong API, you should not care about the internal details other than what it may be able to take in, what it can return, and what other side effects.
+
+2. bundle it up. using a tool like Webpack, all of the required code can be bundled up into a "fat blob" that is stored up in Git. Even if the file becomes in the MBs in size, the only code bundled should be the code needed. then a consumer of said action doesn't need to worry about the modules that the action requires internally and can just run it. This keeps the contract between the Action author and consumer.
