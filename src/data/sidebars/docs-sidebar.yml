@@ -1,11 +1,11 @@
-- title: Docs
+- title: Docs*
   link: /docs/
-- title: Reference Guides
+- title: Reference Guides*
   link: /docs/guides/
   items:
-    - title: Triggers
+    - title: Triggers*
       link: /docs/triggers/
-    - title: Docker Actions
+    - title: Docker Actions*
       link: /docs/docker-actions/
     - title: JS Actions
       link: /docs/js-actions/
@@ -15,28 +15,28 @@
       link: /docs/repository-dispatch/
     - title: Transferring data between Actions
       link: /docs/transferring-data/
-    - title: Publishing Actions
+    - title: Publishing Actions*
       link: /docs/publish-actions/
-    - title: Artifacts
+    - title: Artifacts*
       link: /docs/artifacts/
-    - title: Logs
+    - title: Logs*
       link: /docs/logs/
-    - title: GitHub API Access
+    - title: GitHub API Access*
       link: /docs/github-api/
-    - title: Workflow Contexts
+    - title: Workflow Contexts*
       link: /docs/workflow-contexts/
-- title: Internals
+- title: Internals*
   link: /docs/internals/
   items:
-    - title: Workflow YAML file
+    - title: Workflow YAML file*
       link: /docs/workflow-yml/
-    - title: Action YAML file
+    - title: Action YAML file*
       link: /docs/action-yml/
-    - title: Expression Syntax
+    - title: Expression Syntax*
       link: /docs/expression-syntax/
-    - title: Environment Variables
+    - title: Environment Variables*
       link: /docs/environment-variables/
-    - title: Runners
+    - title: Runners*
       link: /docs/runners/
-- title: External Resources
+- title: External Resources*
   link: /docs/external-resources/
