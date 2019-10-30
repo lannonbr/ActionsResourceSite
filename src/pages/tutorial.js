@@ -12,6 +12,7 @@ export default () => {
         <div
           style={{
             lineHeight: 1.6,
+            paddingTop: 50,
           }}
         >
           <h1>Tutorials</h1>

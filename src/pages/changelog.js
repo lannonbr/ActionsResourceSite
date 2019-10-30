@@ -21,6 +21,7 @@ const ChangelogPage = ({ data }) => {
           paddingLeft: 10,
           paddingRight: 10,
           margin: "20px auto",
+          paddingTop: 50,
         }}
       >
         <h1>Changelog</h1>

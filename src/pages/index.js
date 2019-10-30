@@ -7,6 +7,7 @@ export default () => (
       style={{
         maxWidth: "60em",
         margin: `20px auto`,
+        paddingTop: 50,
       }}
     >
       <h1>Frontpage</h1>
