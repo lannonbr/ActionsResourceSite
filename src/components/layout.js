@@ -5,12 +5,16 @@ import GlobalStyles from "../utils/globalStyles"
 
 const Header = styled.header`
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: flex-start;
   padding-left: 20px;
   padding-right: 20px;
   border-bottom: 1px solid lightgray;
-
+  height: 50px;
+  width: 100%;
+  background: white;
+  z-index: 1;
   ul {
     padding-left: 0;
     list-style: none;
@@ -27,7 +31,6 @@ const Header = styled.header`
 
 const LayoutContainer = styled.div`
   display: grid;
-  grid-template-rows: 50px 1fr;
   min-height: 100vh;
 `
 

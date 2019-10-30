@@ -5,6 +5,10 @@ import styled from "styled-components"
 const Aside = styled.aside`
   border-right: 1px solid lightgray;
   overflow-x: hidden;
+  position: fixed;
+  left: 0;
+  overflow-y: scroll;
+  height: calc(100% - 50px);
 
   ul {
     list-style: none;
