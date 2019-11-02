@@ -20,6 +20,7 @@ const Aside = styled.aside`
     li {
       width: 300px;
       padding-left: 10px;
+
       a {
         color: inherit;
         text-decoration: none;
@@ -33,6 +34,10 @@ const Aside = styled.aside`
           border-top-left-radius: 4px;
           border-bottom-left-radius: 4px;
         }
+      }
+
+      &.stub > a {
+        color: gray;
       }
     }
   }
@@ -48,7 +53,7 @@ const genLinks = itemList => {
     <React.Fragment>
       {itemList.map(item => {
         return (
-          <li>
+          <li className={item.title.endsWith("*") ? "stub" : ""}>
             <Link to={item.link}>{item.title}</Link>
             {item.items && <ul>{genLinks(item.items)}</ul>}
           </li>
