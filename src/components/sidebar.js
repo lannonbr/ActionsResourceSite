@@ -9,6 +9,8 @@ const Aside = styled.aside`
   left: 0;
   overflow-y: scroll;
   height: calc(100% - 50px);
+  z-index: 1;
+  background: white;
 
   ul {
     list-style: none;

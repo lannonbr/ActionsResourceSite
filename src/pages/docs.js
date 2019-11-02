@@ -9,11 +9,7 @@ export default () => {
     <Layout>
       <SidebarPageContainer>
         <Sidebar itemList={DocsSidebar} />
-        <div
-          style={{
-            paddingTop: 50,
-          }}
-        >
+        <div>
           <h1>Docs</h1>
           <p>Stub</p>
         </div>
