@@ -7,7 +7,7 @@ const Aside = styled.aside`
   overflow-x: hidden;
   position: fixed;
   left: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: calc(100% - 50px);
   z-index: 1;
   background: white;
