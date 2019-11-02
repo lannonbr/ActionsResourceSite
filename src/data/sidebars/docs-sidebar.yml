@@ -25,6 +25,8 @@
       link: /docs/github-api/
     - title: Workflow Contexts*
       link: /docs/workflow-contexts/
+    - title: Secrets
+      link: /docs/secrets/
 - title: Internals*
   link: /docs/internals/
   items:
