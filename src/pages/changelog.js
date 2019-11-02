@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import moment from "moment"
+import Helmet from "react-helmet"
 
 const ChangelogPage = ({ data }) => {
   let changelogEntries = data.fauna.getAllChangelogEntries.data
@@ -14,6 +15,7 @@ const ChangelogPage = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet title={"Changelog | GARS"} />
       <div
         style={{
           width: "100%",

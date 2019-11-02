@@ -3,10 +3,12 @@ import Layout from "../components/layout"
 import Sidebar from "../components/sidebar"
 import { TutorialSidebar } from "../utils/sidebar-list"
 import SidebarPageContainer from "../components/SidebarPageContainer"
+import Helmet from "react-helmet"
 
 export default () => {
   return (
     <Layout>
+      <Helmet title={"Tutorials | GARS"} />
       <SidebarPageContainer>
         <Sidebar itemList={TutorialSidebar} />
         <div

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Helmet from "react-helmet"
 import Sidebar from "../components/sidebar"
 import { DocsSidebar, TutorialSidebar } from "../utils/sidebar-list"
 import Layout from "../components/layout"
@@ -22,6 +23,7 @@ const MDXTemplate = ({ pageContext, data }) => {
 
   return (
     <Layout>
+      <Helmet title={data.mdx.frontmatter.title + " | GARS"} />
       <SidebarPageContainer>
         <Sidebar itemList={itemList} />
         <div>
