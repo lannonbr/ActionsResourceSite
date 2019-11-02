@@ -13,8 +13,9 @@ const Header = styled.header`
   border-bottom: 1px solid lightgray;
   height: 50px;
   width: 100%;
-  background: white;
+  background: black;
   z-index: 1;
+
   ul {
     padding-left: 0;
     list-style: none;
@@ -22,10 +23,12 @@ const Header = styled.header`
     li {
       margin-left: 20px;
       font-size: 18px;
-      a {
-        text-decoration: none;
-      }
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
   }
 `
 
