@@ -27,6 +27,8 @@
       link: /docs/workflow-contexts/
     - title: Secrets
       link: /docs/secrets/
+    - title: Usage Limits
+      link: /docs/usage-limits/
 - title: Internals*
   link: /docs/internals/
   items:

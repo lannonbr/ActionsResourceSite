@@ -1,0 +1,44 @@
+---
+title: Usage Limits
+---
+
+There are limits to what you can do with Actions dependent on your plan.
+
+## Private Repo limits
+
+On public repos, GitHub Actions workflow runs will always be free, but there is a pay-as-you-go system for private repos.
+
+Each GitHub plan gives you a certain amount of minutes for free per month
+
+| type       | minutes |
+| ---------- | ------- |
+| Free       | 2,000   |
+| Pro        | 3,000   |
+| Team       | 10,000  |
+| Enterprise | 50,000  |
+
+After such, you have to start paying for additional minutes depending on the OS you use
+
+| OS      | cost / minute |
+| ------- | ------------- |
+| Linux   | \$0.008       |
+| Windows | \$0.016       |
+| MacOS   | \$0.08        |
+
+On top of such, In late 2019, you can run the GitHub Actions runner on your own machines free of charge.
+
+## Concurrency limits
+
+- 20 concurrent workflows can run per repo
+- 1000 API requests per hour can be made per repo
+- Individual jobs can run for a max of 6 hours.
+- The amount of concurrent jobs run across a single account depends on your plan
+
+| Plan       | Total concurrent jobs |
+| ---------- | --------------------- |
+| Free       | 20                    |
+| Pro        | 40                    |
+| Team       | 60                    |
+| Enterprise | 180                   |
+
+You although can only run 5 jobs on MacOS at a time (15 on Enterprise accounts)
