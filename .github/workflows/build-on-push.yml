@@ -1,4 +1,4 @@
-name: Daily Build
+name: Build on push
 on:
   push:
     paths-ignore:
