@@ -2,7 +2,7 @@ name: Build on push
 on:
   push:
     paths-ignore:
-      - "./github/**"
+      - "./.github/**"
 jobs:
   build:
     runs-on: ubuntu-latest
