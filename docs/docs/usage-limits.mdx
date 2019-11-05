@@ -29,6 +29,8 @@ On top of such, In late 2019, you can run the GitHub Actions runner on your own 
 
 ## Concurrency limits
 
+Jobs and workflows will run concurrently by default, but there are some limitations on how much can run at the same time on your repo.
+
 - 20 concurrent workflows can run per repo
 - 1000 API requests per hour can be made per repo
 - Individual jobs can run for a max of 6 hours.
