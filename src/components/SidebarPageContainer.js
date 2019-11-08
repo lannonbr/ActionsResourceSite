@@ -5,7 +5,7 @@ const SidebarPageContainer = styled.div`
   height: calc(100% - 50px);
   margin-top: 50px;
 
-  div {
+  > div {
     width: 100%;
     max-width: 60em;
     padding-left: 320px;
