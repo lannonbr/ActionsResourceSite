@@ -53,7 +53,10 @@ const genLinks = itemList => {
     <React.Fragment>
       {itemList.map(item => {
         return (
-          <li className={item.title.endsWith("*") ? "stub" : ""}>
+          <li
+            className={item.title.endsWith("*") ? "stub" : ""}
+            key={"sidebar-item:" + item.title}
+          >
             <Link to={item.link}>{item.title}</Link>
 
             {/* add a new unordered list nested in a item if it has sub-pages */}

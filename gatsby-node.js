@@ -20,6 +20,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       }
     `)
   }
+
+  createTypes(`
+    type MdxFrontmatter {
+      title: String!
+      guidelist: Boolean
+    }
+  `)
 }
 
 // Setup some fake resolvers when Fauna isn't available
