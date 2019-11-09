@@ -26,7 +26,7 @@ export default () => {
             Actions. From finding actions, learning how to interact with
             GitHub's API, using environment variables and secrets and many more.
           </p>
-          <Link to={"/docs/guides/"}>Read more</Link>
+          <Link to={"/docs/guides/"}>Go to Reference Guides</Link>
           <h2 style={{ marginTop: 16 }}>Internals</h2>
           <p>
             This section of docs will dive into the deeper workings of how
@@ -34,13 +34,13 @@ export default () => {
             that are used to create actions and workflows, to learning about the
             expression syntax and even the runners your workflows run on.
           </p>
-          <Link to={"/docs/guides/"}>Read more</Link>
+          <Link to={"/docs/guides/"}>Go to Internals</Link>
           <h2 style={{ marginTop: 16 }}>External Resources</h2>
           <p>
             Alongside all the content here, I have curated content about Actions
             from the greater community.
           </p>
-          <Link to={"/docs/external-resources/"}>Read more</Link>
+          <Link to={"/docs/external-resources/"}>Go to External Resources</Link>
         </div>
       </SidebarPageContainer>
     </Layout>
