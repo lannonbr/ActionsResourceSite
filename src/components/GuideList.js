@@ -7,7 +7,7 @@ export default ({ items }) => (
     <ul>
       {items.map(item => (
         <li key={"guidelist-item:" + item.title}>
-          <Link to={item.link}>{item.title}</Link>
+          <Link to={item.link}>{item.title.replace(/\*$/, "")}</Link>
         </li>
       ))}
     </ul>
