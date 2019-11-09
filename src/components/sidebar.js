@@ -55,6 +55,8 @@ const genLinks = itemList => {
         return (
           <li className={item.title.endsWith("*") ? "stub" : ""}>
             <Link to={item.link}>{item.title}</Link>
+
+            {/* add a new unordered list nested in a item if it has sub-pages */}
             {item.items && <ul>{genLinks(item.items)}</ul>}
           </li>
         )
