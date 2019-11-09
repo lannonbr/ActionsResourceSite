@@ -10,7 +10,7 @@ When you upload an artifact, it will be present in the top right corner of the D
 
 To do an upload, copy the following into a job:
 
-```yaml
+```yaml title=upload-file.yml
 steps:
   - uses: actions/checkout@v1
 
@@ -28,7 +28,7 @@ steps:
 
 and then to download said artifact within the same workflow but another job,
 
-```yaml
+```yaml title=download-file.yml
 steps:
   - uses: actions/checkout@master
 

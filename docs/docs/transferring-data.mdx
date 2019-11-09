@@ -16,7 +16,7 @@ echo '::set-output name=uploaded::true'
 
 Usage in Actions Toolkit
 
-```js
+```js title=action.js
 const core = require("@actions/core")
 
 core.setOutput("uploaded", "true")
@@ -30,7 +30,7 @@ Let's say we have an action that does some processing on data and then tries upl
 
 Let's define this output in the action.yml file:
 
-```yml
+```yml title=action.yml
 name: Data processor
 outputs:
   file_uploaded:
@@ -39,7 +39,7 @@ outputs:
 
 Now if we want to use it in the workflow, we can do such by accessing it from the step's context. do note you need to give a step an id if you wish to access outputs out of it.
 
-```yml
+```yml title=workflow.yml
 # ...
 
 steps:
@@ -52,7 +52,7 @@ steps:
 
 or you could also use it as an input to another action.
 
-```yml
+```yml title=workflow2.yml
 - uses: another_action
   with:
     was_file_uploaded: ${{ steps.cool_action.outputs.file_uploaded }}

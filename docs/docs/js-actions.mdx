@@ -8,7 +8,7 @@ When you wish to bundle up some code into an Action that is written in Javascrip
 
 The starting point of a JS Action is just writing a Node program. Compared to other serverless function tools, these programs can do whatever and can run side effects while traditional FaaS are request / response driven. Then, write the following in your `action.yml` file
 
-```yml
+```yml title=action.yml
 # ...
 runs:
   using: "node12"
@@ -22,7 +22,7 @@ Then you can point the workflow file to use it.
 
 If it is in the same repo as your other code you wish, you can use as follows:
 
-```yml
+```yml title=workflow.yml
 steps:
   - name: Action
     uses: ./path/to/action
@@ -30,7 +30,7 @@ steps:
 
 or in another repo:
 
-```yml
+```yml title=workflow.yml
 steps:
   - name: Action
     uses: lannonbr/My-Cool-Action

@@ -6,7 +6,7 @@ If you wish to trigger a workflow externally, the `repository_dispatch` event is
 
 Here's an example workflow which uses this trigger and will echo 'Hello!' when you send a request to it with the `event_type` of test
 
-```yaml
+```yaml title=workflow.yml
 name: Dispatch action
 on: repository_dispatch
 jobs:
@@ -22,7 +22,7 @@ jobs:
 
 Then, you can send a POST request to the API as follows:
 
-```shell
+```shell title=exec.sh
 curl -H "Authorization: token $GITHUB_TOKEN" \
     -H 'Accept: application/vnd.github.everest-preview+json' \
     "https://api.github.com/repos/username/MyRepo/dispatches" \
