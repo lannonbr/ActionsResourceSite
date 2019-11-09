@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "actions-resource-site",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A Gatsby site for documentation, tips, and other info about GitHub Actions",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -9,8 +9,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
@@ -40,9 +39,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/lannonbr/ActionsResourceSite"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/lannonbr/ActionsResourceSite/issues"
   }
 }
