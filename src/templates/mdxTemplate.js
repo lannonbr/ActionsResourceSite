@@ -7,8 +7,8 @@ import { DocsSidebar, TutorialSidebar } from "../utils/sidebar-list"
 import Layout from "../components/layout"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 
-const f = location => {
-  let key = location.split("/")[1]
+const getItemListBasedOnSlug = slug => {
+  let key = slug.split("/")[1]
 
   const lookup = {
     docs: DocsSidebar,
@@ -19,7 +19,9 @@ const f = location => {
 }
 
 const MDXTemplate = ({ pageContext, data }) => {
-  let itemList = f(pageContext.slug)
+  let itemList = getItemListBasedOnSlug(pageContext.slug)
+
+  let githubURL = `https://github.com/lannonbr/ActionsResourceSite/blob/master/docs/${data.mdx.parent.relativePath}`
 
   return (
     <Layout>
@@ -29,6 +31,7 @@ const MDXTemplate = ({ pageContext, data }) => {
         <div>
           <h1>{data.mdx.frontmatter.title}</h1>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          <a href={githubURL}>Edit this page on GitHub</a>
         </div>
       </SidebarPageContainer>
     </Layout>
@@ -43,6 +46,11 @@ export const query = graphql`
       body
       frontmatter {
         title
+      }
+      parent {
+        ... on File {
+          relativePath
+        }
       }
     }
   }
