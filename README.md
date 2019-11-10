@@ -1,4 +1,4 @@
-# GARS (GitHub Actions Resource Site) (Working Title)
+# GARS (GitHub Actions Resource Site)
 
 A Gatsby site for documentation, tips, and other info about GitHub Actions
 
