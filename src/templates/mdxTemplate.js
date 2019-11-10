@@ -52,7 +52,7 @@ const MDXTemplate = ({ pageContext, data }) => {
             name: `twitter:image`,
             content: `https://quirky-hugle-a24b41.netlify.com/og-images/${ogImageTitle}.png`,
           },
-          { name: `twitter:site`, content: `@chrisbiscardi` },
+          { name: `twitter:site`, content: `@lannonbr` },
         ]}
       />
       <SidebarPageContainer>
