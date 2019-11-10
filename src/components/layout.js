@@ -7,6 +7,7 @@ import Header from "./Header"
 const LayoutContainer = styled.div`
   display: grid;
   min-height: 100vh;
+  max-width: 100%;
 `
 
 const Layout = ({ children }) => (

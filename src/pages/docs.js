@@ -12,7 +12,7 @@ export default () => {
       <Helmet title={"Docs | GARS"} />
       <SidebarPageContainer>
         <Sidebar itemList={DocsSidebar} />
-        <div>
+        <div className="content">
           <h1>Docs</h1>
           <p>
             GitHub Actions provides APIs and tools to create automation

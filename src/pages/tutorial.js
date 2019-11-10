@@ -4,7 +4,22 @@ import Sidebar from "../components/sidebar"
 import { TutorialSidebar } from "../utils/sidebar-list"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 import Helmet from "react-helmet"
+import styled from "styled-components"
 import { Link } from "gatsby"
+
+const TutorialsSideBySideContainer = styled.div`
+  display: flex;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: left;
+
+    section {
+      margin-bottom: 20px;
+    }
+  }
+`
 
 export default () => {
   return (
@@ -13,6 +28,7 @@ export default () => {
       <SidebarPageContainer>
         <Sidebar itemList={TutorialSidebar} />
         <div
+          className="content"
           style={{
             lineHeight: 1.6,
           }}
@@ -23,12 +39,7 @@ export default () => {
             introductory content on how to be able to use the GitHub Actions
             platform
           </p>
-          <div
-            style={{
-              display: "flex",
-              textAlign: "center",
-            }}
-          >
+          <TutorialsSideBySideContainer>
             <section style={{ flex: 1 }}>
               <h2>Setting up CI</h2>
               <p>
@@ -49,7 +60,7 @@ export default () => {
               </p>
               <Link to={"/tutorial/build-first-action/"}>Learn More</Link>
             </section>
-          </div>
+          </TutorialsSideBySideContainer>
         </div>
       </SidebarPageContainer>
     </Layout>
