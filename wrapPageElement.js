@@ -2,6 +2,16 @@ import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import CodeBlock from "./src/components/CodeBlock"
 import { preToCodeBlock } from "mdx-utils"
+import styled from "styled-components"
+import ColoredLink from "./src/components/ColoredLink"
+
+const ColoredA = styled.a`
+  color: #3867d6;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 const components = {
   inlineCode: ({ children }) => {
@@ -26,6 +36,17 @@ const components = {
       return <CodeBlock {...props} />
     } else {
       return <pre {...preProps} />
+    }
+  },
+  a: props => {
+    if (props.href[0] === "/") {
+      return (
+        <ColoredLink to={props.href} {...props}>
+          {props.children}
+        </ColoredLink>
+      )
+    } else {
+      return <ColoredA {...props}>{props.children}</ColoredA>
     }
   },
 }

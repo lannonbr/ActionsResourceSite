@@ -4,7 +4,7 @@ import Sidebar from "../components/sidebar"
 import { DocsSidebar } from "../utils/sidebar-list"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 import Helmet from "react-helmet"
-import { Link } from "gatsby"
+import ColoredLink from "../components/ColoredLink"
 
 export default () => {
   return (
@@ -26,7 +26,7 @@ export default () => {
             Actions. From finding actions, learning how to interact with
             GitHub's API, using environment variables and secrets and many more.
           </p>
-          <Link to={"/docs/guides/"}>Go to Reference Guides</Link>
+          <ColoredLink to={"/docs/guides/"}>Go to Reference Guides</ColoredLink>
           <h2 style={{ marginTop: 16 }}>Internals</h2>
           <p>
             This section of docs will dive into the deeper workings of how
@@ -34,13 +34,15 @@ export default () => {
             that are used to create actions and workflows, to learning about the
             expression syntax and even the runners your workflows run on.
           </p>
-          <Link to={"/docs/internals/"}>Go to Internals</Link>
+          <ColoredLink to={"/docs/internals/"}>Go to Internals</ColoredLink>
           <h2 style={{ marginTop: 16 }}>External Resources</h2>
           <p>
             Alongside all the content here, I have curated content about Actions
             from the greater community.
           </p>
-          <Link to={"/docs/external-resources/"}>Go to External Resources</Link>
+          <ColoredLink to={"/docs/external-resources/"}>
+            Go to External Resources
+          </ColoredLink>
         </div>
       </SidebarPageContainer>
     </Layout>

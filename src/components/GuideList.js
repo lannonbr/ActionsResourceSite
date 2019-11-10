@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import ColoredLink from "./ColoredLink"
 
 export default ({ items }) => (
   <React.Fragment>
@@ -7,7 +7,9 @@ export default ({ items }) => (
     <ul>
       {items.map(item => (
         <li key={"guidelist-item:" + item.title}>
-          <Link to={item.link}>{item.title.replace(/\*$/, "")}</Link>
+          <ColoredLink to={item.link}>
+            {item.title.replace(/\*$/, "")}
+          </ColoredLink>
         </li>
       ))}
     </ul>

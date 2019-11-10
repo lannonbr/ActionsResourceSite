@@ -7,6 +7,7 @@ import { DocsSidebar, TutorialSidebar } from "../utils/sidebar-list"
 import Layout from "../components/layout"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 import GuideList from "../components/GuideList"
+import styled from "styled-components"
 
 const getItemListBasedOnSlug = slug => {
   let key = slug.split("/")[1]
@@ -30,6 +31,14 @@ const getSubItems = (list, title) => {
     }
   }
 }
+
+const ColoredA = styled.a`
+  color: #3867d6;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 const MDXTemplate = ({ pageContext, data }) => {
   let ogImageTitle = data.mdx.fields.title
@@ -67,7 +76,7 @@ const MDXTemplate = ({ pageContext, data }) => {
           {data.mdx.frontmatter.guidelist && guidelistItems && (
             <GuideList items={guidelistItems} />
           )}
-          <a href={githubURL}>Edit this page on GitHub</a>
+          <ColoredA href={githubURL}>Edit this page on GitHub</ColoredA>
         </div>
       </SidebarPageContainer>
     </Layout>

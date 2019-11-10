@@ -5,7 +5,7 @@ import { TutorialSidebar } from "../utils/sidebar-list"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 import Helmet from "react-helmet"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import ColoredLink from "../components/ColoredLink"
 
 const TutorialsSideBySideContainer = styled.div`
   display: flex;
@@ -48,7 +48,9 @@ export default () => {
                 you can have some safety that the project will continue to do
                 what is expected of it.
               </p>
-              <Link to={"/tutorial/ci-pipeline/"}>Learn More</Link>
+              <ColoredLink to={"/tutorial/ci-pipeline/"}>
+                Learn More
+              </ColoredLink>
             </section>
             <section style={{ flex: 1 }}>
               <h2>Building your first Action</h2>
@@ -58,7 +60,9 @@ export default () => {
                 workflows. This will go through creating a new Action with
                 Javascript.
               </p>
-              <Link to={"/tutorial/build-first-action/"}>Learn More</Link>
+              <ColoredLink to={"/tutorial/build-first-action/"}>
+                Learn More
+              </ColoredLink>
             </section>
           </TutorialsSideBySideContainer>
         </div>
