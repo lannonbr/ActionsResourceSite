@@ -1,5 +1,7 @@
 const path = require("path")
+const slugify = require("@sindresorhus/slugify")
 const { createFilePath } = require("gatsby-source-filesystem")
+const { createPrinterNode } = require("gatsby-plugin-printer")
 
 // Create some fake types when Fauna isn't available
 exports.createSchemaCustomization = ({ actions }) => {
@@ -53,7 +55,7 @@ exports.createResolvers = ({ createResolvers }) => {
   }
 }
 
-exports.onCreateNode = ({ actions, node, getNode }) => {
+exports.onCreateNode = ({ actions, node, getNode, reporter }) => {
   if (node.internal.type === "Mdx") {
     const slug = createFilePath({
       node,
@@ -64,6 +66,23 @@ exports.onCreateNode = ({ actions, node, getNode }) => {
       node,
       name: "slug",
       value: slug,
+    })
+
+    let title = slugify(node.frontmatter.title)
+
+    actions.createNodeField({
+      node,
+      name: "title",
+      value: title,
+    })
+
+    // og-image stuff
+    createPrinterNode({
+      id: node.id,
+      fileName: title,
+      outputDir: "og-images",
+      data: node,
+      component: require.resolve("./src/printer-components/article.js"),
     })
   }
 }

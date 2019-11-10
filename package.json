@@ -14,10 +14,12 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
+    "@sindresorhus/slugify": "^0.9.1",
     "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.17.4",
     "gatsby-plugin-mdx": "^1.0.52",
+    "gatsby-plugin-printer": "~1.0.8",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-sharp": "^2.2.32",
     "gatsby-plugin-styled-components": "^3.1.11",

@@ -32,6 +32,7 @@ const getSubItems = (list, title) => {
 }
 
 const MDXTemplate = ({ pageContext, data }) => {
+  let ogImageTitle = data.mdx.fields.title
   let itemList = getItemListBasedOnSlug(pageContext.slug)
 
   let githubURL = `https://github.com/lannonbr/ActionsResourceSite/blob/master/docs/${data.mdx.parent.relativePath}`
@@ -40,7 +41,20 @@ const MDXTemplate = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <Helmet title={data.mdx.frontmatter.title + " | GARS"} />
+      <Helmet
+        title={data.mdx.frontmatter.title + " | GARS"}
+        meta={[
+          {
+            name: `twitter:card`,
+            content: "summary_large_image",
+          },
+          {
+            name: `twitter:image`,
+            content: `https://quirky-hugle-a24b41.netlify.com/og-images/${ogImageTitle}.png`,
+          },
+          { name: `twitter:site`, content: `@chrisbiscardi` },
+        ]}
+      />
       <SidebarPageContainer>
         <Sidebar itemList={itemList} />
         <div>
@@ -62,6 +76,9 @@ export const query = graphql`
   query MDXQuery($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
+      fields {
+        title
+      }
       frontmatter {
         title
         guidelist
