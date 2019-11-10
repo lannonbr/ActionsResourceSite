@@ -34,7 +34,7 @@ export default () => {
             that are used to create actions and workflows, to learning about the
             expression syntax and even the runners your workflows run on.
           </p>
-          <Link to={"/docs/guides/"}>Go to Internals</Link>
+          <Link to={"/docs/internals/"}>Go to Internals</Link>
           <h2 style={{ marginTop: 16 }}>External Resources</h2>
           <p>
             Alongside all the content here, I have curated content about Actions
