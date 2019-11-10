@@ -49,6 +49,10 @@ const MDXTemplate = ({ pageContext, data }) => {
             content: "summary_large_image",
           },
           {
+            name: `twitter:title`,
+            content: data.mdx.frontmatter.title + " | GARS",
+          },
+          {
             name: `twitter:image`,
             content: `https://quirky-hugle-a24b41.netlify.com/og-images/${ogImageTitle}.png`,
           },
