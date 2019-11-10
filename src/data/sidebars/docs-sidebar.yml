@@ -21,6 +21,8 @@
       link: /docs/artifacts/
     - title: Logs*
       link: /docs/logs/
+    - title: Caching*
+      link: /docs/caching/
     - title: GitHub API Access*
       link: /docs/github-api/
     - title: Workflow Contexts*
