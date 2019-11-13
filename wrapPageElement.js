@@ -5,6 +5,17 @@ import { preToCodeBlock } from "mdx-utils"
 import styled from "styled-components"
 import ColoredLink from "./src/components/ColoredLink"
 
+const StyledTable = styled.table`
+  margin: 20px 0;
+  border: 1px solid #aaa;
+  border-collapse: collapse;
+  th,
+  td {
+    padding: 6px 10px;
+    border: 1px solid #aaa;
+  }
+`
+
 const ColoredA = styled.a`
   color: #3867d6;
   text-decoration: none;
@@ -48,6 +59,23 @@ const components = {
     } else {
       return <ColoredA {...props}>{props.children}</ColoredA>
     }
+  },
+  table: props => {
+    return <StyledTable>{props.children}</StyledTable>
+  },
+  h2: ({ children, ...otherProps }) => {
+    return (
+      <h2 style={{ paddingTop: 10 }} {...otherProps}>
+        {children}
+      </h2>
+    )
+  },
+  h3: ({ children, ...otherProps }) => {
+    return (
+      <h3 style={{ paddingTop: 10 }} {...otherProps}>
+        {children}
+      </h3>
+    )
   },
 }
 
