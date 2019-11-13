@@ -68,7 +68,7 @@ const ChangelogPage = () => {
               let { date, href, title } = entry
 
               return (
-                <ChangelogItem>
+                <ChangelogItem key={"changelog-item-title"}>
                   <p>
                     <a href={href}>{title}</a>
                   </p>
