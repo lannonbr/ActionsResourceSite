@@ -2,4 +2,21 @@
 title: Runners
 ---
 
-stub
+GitHub Actions by default will run on hosted VMs by GitHub. You can run your workflows on Windows, MacOS, and Linux. On the Linux VMs, you also can run Docker.
+
+## Machine Specs
+
+The VMs are `Standard_DS2_v2` virtual machines on Microsoft Azure for the Windows and Linux VMs while the MacOS VMs are run on [MacStadium](https://www.macstadium.com/). Each machine gives you the following:
+
+- 7GB of RAM
+- 2 CPU cores
+- 14GB of SSD space
+
+To use these runners, each platform can be done in a job using the `runs-on` key with a label that matches the OS and version you wish:
+
+| Virtual environment    | YAML workflow label           |
+| ---------------------- | ----------------------------- |
+| Windows Server 2019    | windows-latest                |
+| Ubuntu 18.04           | ubuntu-latest or ubuntu-18.04 |
+| Ubuntu 16.04           | ubuntu-16.04                  |
+| macOS X Catalina 10.15 | macos-latest                  |

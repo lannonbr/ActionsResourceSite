@@ -1,9 +1,9 @@
 - title: Docs
   link: /docs/
-- title: Reference Guides*
+- title: Reference Guides
   link: /docs/guides/
   items:
-    - title: Triggers*
+    - title: Triggers
       link: /docs/triggers/
     - title: Docker Actions*
       link: /docs/docker-actions/
@@ -31,7 +31,7 @@
       link: /docs/secrets/
     - title: Usage Limits
       link: /docs/usage-limits/
-- title: Internals*
+- title: Internals
   link: /docs/internals/
   items:
     - title: Workflow YAML file*
@@ -42,7 +42,7 @@
       link: /docs/expression-syntax/
     - title: Environment Variables*
       link: /docs/environment-variables/
-    - title: Runners*
+    - title: Runners
       link: /docs/runners/
 - title: External Resources
   link: /docs/external-resources/
