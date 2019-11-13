@@ -76,7 +76,16 @@ const MDXTemplate = ({ pageContext, data }) => {
           {data.mdx.frontmatter.guidelist && guidelistItems && (
             <GuideList items={guidelistItems} />
           )}
-          <ColoredA href={githubURL}>Edit this page on GitHub</ColoredA>
+          <ColoredA
+            style={{
+              paddingTop: 20,
+              paddingBottom: 20,
+              display: "inline-block",
+            }}
+            href={githubURL}
+          >
+            Edit this page on GitHub
+          </ColoredA>
         </div>
       </SidebarPageContainer>
     </Layout>
