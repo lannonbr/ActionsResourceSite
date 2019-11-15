@@ -9,7 +9,9 @@ import ColoredLink from "../components/ColoredLink"
 export default () => {
   return (
     <Layout>
-      <Helmet title={"Docs | GARS"} />
+      <Helmet title={"Docs | GARS"}>
+        <link rel="preconnect" href="https://fonts.google.com" />
+      </Helmet>
       <SidebarPageContainer>
         <Sidebar itemList={DocsSidebar} />
         <div className="content">

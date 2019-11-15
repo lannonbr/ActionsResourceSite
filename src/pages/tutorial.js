@@ -24,7 +24,9 @@ const TutorialsSideBySideContainer = styled.div`
 export default () => {
   return (
     <Layout>
-      <Helmet title={"Tutorials | GARS"} />
+      <Helmet title={"Tutorials | GARS"}>
+        <link rel="preconnect" href="https://fonts.google.com" />
+      </Helmet>
       <SidebarPageContainer>
         <Sidebar itemList={TutorialSidebar} />
         <div
