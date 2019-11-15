@@ -25,7 +25,7 @@ export default () => {
   return (
     <Layout>
       <Helmet title={"Tutorials | GARS"}>
-        <link rel="preconnect" href="https://fonts.google.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Helmet>
       <SidebarPageContainer>
         <Sidebar itemList={TutorialSidebar} />

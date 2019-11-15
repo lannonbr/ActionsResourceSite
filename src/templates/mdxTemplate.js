@@ -68,7 +68,7 @@ const MDXTemplate = ({ pageContext, data }) => {
           { name: `twitter:site`, content: `@lannonbr` },
         ]}
       >
-        <link rel="preconnect" href="https://fonts.google.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Helmet>
       <SidebarPageContainer>
         <Sidebar itemList={itemList} />

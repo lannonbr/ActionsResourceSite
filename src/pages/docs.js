@@ -10,7 +10,7 @@ export default () => {
   return (
     <Layout>
       <Helmet title={"Docs | GARS"}>
-        <link rel="preconnect" href="https://fonts.google.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Helmet>
       <SidebarPageContainer>
         <Sidebar itemList={DocsSidebar} />

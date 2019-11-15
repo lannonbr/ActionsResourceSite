@@ -85,7 +85,7 @@ const HeroContainer = styled(Container)`
 export default () => (
   <Layout>
     <Helmet title={"Home | GARS"}>
-      <link rel="preconnect" href="https://fonts.google.com" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
     </Helmet>
     <HeroContainer>
       <h1
