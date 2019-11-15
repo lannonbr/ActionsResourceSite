@@ -86,6 +86,7 @@ export default () => (
   <Layout>
     <Helmet title={"Home | GARS"}>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
     </Helmet>
     <HeroContainer>
       <h1

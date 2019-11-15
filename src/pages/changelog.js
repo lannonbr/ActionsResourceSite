@@ -56,6 +56,7 @@ const ChangelogPage = () => {
       <Layout>
         <Helmet title={"Changelog | GARS"}>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
         </Helmet>
         <ChangelogContainer>
           <h1>Changelog</h1>
