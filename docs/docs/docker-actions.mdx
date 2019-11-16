@@ -2,4 +2,66 @@
 title: Docker Actions
 ---
 
-Page Coming Soon
+Alongside running code on the bare VM or bundled in a [JS Action](/docs/js-actions/), you can also package up code & scripts into a docker container. This provides access to run any tool and then bundle it up to be used quickly in a worflow using a `uses` step.
+
+## Setting up a image
+
+The only two needed instructions in the dockerfile for a Docker action is the `FROM` and `ENTRYPOINT` saying what the base image should be and what should run.
+
+As well, files can be brought into the container with a `COPY` instruction. A Dockerfile as such could look like the following:
+
+```dockerfile title=Dockerfile
+FROM ubuntu:18.04
+
+COPY entrypoint.sh /entrypoint
+
+ENTRYPOINT ["/entrypoint.sh"]
+```
+
+An entrypoint shell script is a good way to say what code should be run when the docker container is executed.
+
+```bash title=entrypoint.sh
+#!/bin/bash
+
+echo 'Running from a container!'
+```
+
+The script has to have the executable bit turned on so be sure to run this command before commiting it:
+
+```bash
+chmod +x entrypoint.sh
+```
+
+**Notice**: It is not required to build a docker image but can improve performance by building them. More details later.
+
+## Action.yml for a docker container.
+
+The [action.yml](/docs/action-yml/) only differs slightly compared to writing a JS Action. Inside it, the `using` key will say `docker` as the runtime and then the `image` key will point to a relative filepath for where the Dockerfile exists.
+
+```yml title=action.yml
+name: My cool docker action
+description: a new GitHub Action doing things in a docker container
+runs:
+  using: "docker"
+  image: "Dockerfile"
+```
+
+If you built the dockerfile into an image, you can as well pass in a URI to it from any registry.
+
+For instance, if the image is on [GitHub Packages](https://github.com/features/packages), then it would be:
+
+```yml title=action.yml
+runs:
+  using: "docker"
+  image: "docker://docker.pkg.github.com/user/repo/my-image:1.0.0"
+```
+
+Building the container into an image will reduce workflow run times so this is reccomended if the container takes a bit to build or is used frequently.
+
+Once this is all set, the docker action can be [published up to the GitHub Marketplace](/docs/publish-actions/).
+
+## Access to the host filesystem
+
+In every container, The `GITHUB_WORKSPACE` environment variable will point to the workspace of the job.
+
+So say we ran a Python script that saves a file `data.json` in the `GITHUB_WORKSPACE` folder. After this container is done being run and cleaned, the same folder in the host system will still include that file.

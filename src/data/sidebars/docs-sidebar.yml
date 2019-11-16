@@ -5,7 +5,7 @@
   items:
     - title: Triggers
       link: /docs/triggers/
-    - title: Docker Actions*
+    - title: Docker Actions
       link: /docs/docker-actions/
     - title: JS Actions
       link: /docs/js-actions/
