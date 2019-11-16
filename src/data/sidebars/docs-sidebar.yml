@@ -23,7 +23,7 @@
       link: /docs/logs/
     - title: Caching*
       link: /docs/caching/
-    - title: GitHub API Access*
+    - title: GitHub API Access
       link: /docs/github-api/
     - title: Workflow Contexts*
       link: /docs/workflow-contexts/

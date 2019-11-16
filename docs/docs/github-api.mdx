@@ -2,4 +2,59 @@
 title: GitHub API Access
 ---
 
-Page Coming Soon
+Working with GitHub APIs is a powerful tool in GitHub Actions. There are a variety of methods of accessing GitHub's APIs depending on the language you wish to use.
+
+## GITHUB_TOKEN
+
+In all workflows, there is a default secret called `GITHUB_TOKEN` which provides a personal access token Read/Write access to many APIs on the specific repo.
+
+It can be inserted anywhere in a workflow in the `env` key at the workflow, job, or step level. For example at the job level:
+
+```yml title=main.yml
+jobs:
+  run:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      # now able to use GITHUB_TOKEN
+```
+
+## Javascript: @actions/github
+
+As part of the [Actions Toolkit](https://github.com/actions/toolkit), a wrapper around the JS Octokit client is available.
+
+To use it, download the `@actions/github` node module.
+
+```bash
+yarn add @actions/github
+```
+
+Then for instance, imagine you are running a workflow on a new issue, you could create a comment on it.
+
+```js title=make-comment.js
+const github = require("@actions/github")
+
+// Access token provided by GitHub in all actions
+const token = process.env.GITHUB_TOKEN
+
+// GitHub event payload
+const context = github.context
+
+// Create a
+const octokit = new github.GitHub(token)
+
+// Example: create a comment on an issue
+octokit.issues.createComment({
+  ...context.issue,
+  body: "Thanks for submitting an issue! We will get to it shortly",
+})
+```
+
+## Other Languages: Octokit
+
+Alongside such, the [Octokit](https://github.com/octokit) org has plenty of other clients for other languages and methods.
+
+- [@octokit/graphql.js](https://github.com/octokit/graphql.js): Node client for GitHub GraphQL API.
+- [octokit.rb](https://github.com/octokit/octokit.rb): Client for Ruby
+- [go-octokit](https://github.com/octokit/go-octokit): Client for Go
+- [octokit.net](https://github.com/octokit/octokit.net): Client for .NET
