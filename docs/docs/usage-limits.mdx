@@ -17,6 +17,20 @@ Each GitHub plan gives you a certain amount of minutes for free per month.
 | Team       | 10,000  |
 | Enterprise | 50,000  |
 
+### Billing Calculations
+
+As well, each OS will calculate billed usage time differently:
+
+| OS      | Usage Time (in minutes) | Billed Time (in minutes) |
+| ------- | ----------------------- | ------------------------ |
+| Linux   | 1                       | 1                        |
+| Windows | 1                       | 2                        |
+| MacOS   | 1                       | 10                       |
+
+So for example, if you ran 30 minutes on a MacOS hosted runner for a private repo, it would show up as 300 minutes in the billing dashboard.
+
+### Additional usage costs
+
 After such, you have to start paying for additional minutes depending on the OS you use.
 
 | OS      | Cost / minute |
