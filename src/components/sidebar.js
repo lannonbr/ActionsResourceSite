@@ -96,7 +96,7 @@ const genLinks = itemList => {
 
         return (
           <li
-            className={item.title.endsWith("*") ? "stub" : ""}
+            className={isStub ? "stub" : ""}
             key={"sidebar-item:" + item.title}
           >
             <Link to={item.link}>
