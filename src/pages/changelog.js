@@ -3,31 +3,6 @@ import Layout from "../components/layout"
 import { graphql, useStaticQuery } from "gatsby"
 import moment from "moment"
 import Helmet from "react-helmet"
-import styled from "styled-components"
-
-const ChangelogItem = styled.li`
-  margin-bottom: 10px;
-
-  p {
-    padding-bottom: 0;
-  }
-`
-
-const ChangelogContainer = styled.div`
-  width: 100%;
-  max-width: 60em;
-  padding: 50px 10px 0 10px;
-  margin: 20px auto;
-
-  a {
-    color: #3867d6;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`
 
 const ChangelogPage = () => {
   const data = useStaticQuery(graphql`
@@ -46,7 +21,7 @@ const ChangelogPage = () => {
   if (data.fauna) {
     let changelogEntries = data.fauna.getAllChangelogEntries.data
 
-    changelogEntries.forEach(entry => {
+    changelogEntries.forEach((entry) => {
       entry.timestamp = moment(entry.date, "MMMM D, YYYY").unix()
     })
 
@@ -58,35 +33,43 @@ const ChangelogPage = () => {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
         </Helmet>
-        <ChangelogContainer>
+        <div className="w-full max-w-4xl my-5 mx-auto pt-16 px-2">
           <h1>Changelog</h1>
           <p>
             This is a list of all GitHub Actions posts for awhile from{" "}
-            <a href="https://github.blog/changelog">
+            <a
+              className="text-blue-700 no-underline hover:underline"
+              href="https://github.blog/changelog"
+            >
               https://github.blog/changelog
             </a>
           </p>
-          <ul>
-            {changelogEntries.map(entry => {
+          <ul className="pl-4">
+            {changelogEntries.map((entry) => {
               let { date, href, title } = entry
 
               return (
-                <ChangelogItem key={"changelog-item-title"}>
-                  <p>
-                    <a href={href}>{title}</a>
+                <li className="mb-2 list-disc" key={"changelog-item-title"}>
+                  <p className="pb-0">
+                    <a
+                      className="text-blue-700 no-underline hover:underline"
+                      href={href}
+                    >
+                      {title}
+                    </a>
                   </p>
                   <time>{date}</time>
-                </ChangelogItem>
+                </li>
               )
             })}
           </ul>
-        </ChangelogContainer>
+        </div>
       </Layout>
     )
   } else {
     return (
       <Layout>
-        <ChangelogContainer>
+        <div className="w-full max-w-4xl my-5 mx-auto pt-16 px-2">
           <h1>Changelog</h1>
           <p>
             Given you do not have fauna set up, this page will be left blank
@@ -94,7 +77,7 @@ const ChangelogPage = () => {
             so if you wish to work on this page, you will be able to without
             needing to setup Fauna.
           </p>
-        </ChangelogContainer>
+        </div>
       </Layout>
     )
   }

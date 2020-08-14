@@ -40,7 +40,7 @@ const components = {
       </code>
     )
   },
-  pre: preProps => {
+  pre: (preProps) => {
     const props = preToCodeBlock(preProps)
 
     if (props) {
@@ -49,7 +49,7 @@ const components = {
       return <pre {...preProps} />
     }
   },
-  a: props => {
+  a: (props) => {
     if (props.href[0] === "/") {
       return (
         <ColoredLink to={props.href} {...props}>
@@ -60,7 +60,7 @@ const components = {
       return <ColoredA {...props}>{props.children}</ColoredA>
     }
   },
-  table: props => {
+  table: (props) => {
     return <StyledTable>{props.children}</StyledTable>
   },
   h2: ({ children, ...otherProps }) => {

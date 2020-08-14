@@ -1,21 +1,11 @@
 import React from "react"
-import styled from "styled-components"
-
-import GlobalStyles from "../utils/globalStyles"
 import Header from "./Header"
 
-const LayoutContainer = styled.div`
-  display: grid;
-  min-height: 100vh;
-  max-width: 100%;
-`
-
 const Layout = ({ children }) => (
-  <LayoutContainer>
-    <GlobalStyles />
+  <div className="grid min-h-screen max-w-full">
     <Header />
     <main>{children}</main>
-  </LayoutContainer>
+  </div>
 )
 
 export default Layout

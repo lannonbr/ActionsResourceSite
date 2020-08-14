@@ -22,6 +22,7 @@ if (process.env.FAUNADB_TOKEN) {
 module.exports = {
   plugins: [
     ...extraPlugins,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

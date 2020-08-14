@@ -1,10 +1,8 @@
-import styled from "styled-components"
+import React from "react"
 import { Link } from "gatsby"
 
-export default styled(Link)`
-  color: #3867d6;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`
+export default (props) => {
+  return (
+    <Link className="text-blue-700 no-underline hover:underline" {...props} />
+  )
+}

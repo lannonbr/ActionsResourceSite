@@ -7,9 +7,8 @@ import { DocsSidebar, TutorialSidebar } from "../utils/sidebar-list"
 import Layout from "../components/layout"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 import GuideList from "../components/GuideList"
-import styled from "styled-components"
 
-const getItemListBasedOnSlug = slug => {
+const getItemListBasedOnSlug = (slug) => {
   let key = slug.split("/")[1]
 
   const lookup = {
@@ -31,14 +30,6 @@ const getSubItems = (list, title) => {
     }
   }
 }
-
-const ColoredA = styled.a`
-  color: #3867d6;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`
 
 const MDXTemplate = ({ pageContext, data }) => {
   let ogImageTitle = data.mdx.fields.title
@@ -79,16 +70,12 @@ const MDXTemplate = ({ pageContext, data }) => {
           {data.mdx.frontmatter.guidelist && guidelistItems && (
             <GuideList items={guidelistItems} />
           )}
-          <ColoredA
-            style={{
-              paddingTop: 20,
-              paddingBottom: 20,
-              display: "inline-block",
-            }}
+          <a
+            className="inline-block text-blue-700 no-underline hover:underline py-5"
             href={githubURL}
           >
             Edit this page on GitHub
-          </ColoredA>
+          </a>
         </div>
       </SidebarPageContainer>
     </Layout>

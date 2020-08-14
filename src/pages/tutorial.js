@@ -4,22 +4,7 @@ import Sidebar from "../components/sidebar"
 import { TutorialSidebar } from "../utils/sidebar-list"
 import SidebarPageContainer from "../components/SidebarPageContainer"
 import Helmet from "react-helmet"
-import styled from "styled-components"
 import ColoredLink from "../components/ColoredLink"
-
-const TutorialsSideBySideContainer = styled.div`
-  display: flex;
-  text-align: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: left;
-
-    section {
-      margin-bottom: 20px;
-    }
-  }
-`
 
 export default () => {
   return (
@@ -42,8 +27,8 @@ export default () => {
             introductory content on how to be able to use the GitHub Actions
             platform
           </p>
-          <TutorialsSideBySideContainer>
-            <section style={{ flex: 1 }}>
+          <div className="flex flex-col md:flex-row">
+            <section className="mb-5 flex-1 md:mb-0">
               <h2>Setting up CI</h2>
               <p>
                 A good intro to GH Actions is setting up a Continuous
@@ -67,7 +52,7 @@ export default () => {
                 Learn More
               </ColoredLink>
             </section>
-          </TutorialsSideBySideContainer>
+          </div>
         </div>
       </SidebarPageContainer>
     </Layout>

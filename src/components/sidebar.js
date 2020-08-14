@@ -49,22 +49,6 @@ const SidebarContainer = styled.div`
     }
   }
 
-  button {
-    display: none;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    color: white;
-    font-size: 24px;
-    background: slateblue;
-    border: none;
-    border-radius: 50px;
-    z-index: 1;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.42);
-  }
-
   @media (max-width: 768px) {
     width: 0;
 
@@ -79,19 +63,13 @@ const SidebarContainer = styled.div`
       top: 50px;
       margin-bottom: 60px;
     }
-
-    button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 `
 
-const genLinks = itemList => {
+const genLinks = (itemList) => {
   return (
     <React.Fragment>
-      {itemList.map(item => {
+      {itemList.map((item) => {
         const isStub = item.title.endsWith("*")
 
         return (
@@ -113,7 +91,7 @@ const genLinks = itemList => {
   )
 }
 
-const Sidebar = props => {
+const Sidebar = (props) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false)
 
   const toggleSidebar = () => {
@@ -122,7 +100,15 @@ const Sidebar = props => {
 
   return (
     <SidebarContainer>
-      <button onClick={() => toggleSidebar()}>
+      <button
+        className="inline-flex items-center justify-center fixed text-2xl w-16 h-16 text-white bg-gray-700 border-none rounded-full z-10 md:hidden"
+        style={{
+          bottom: 10,
+          right: 10,
+          boxShadow: "0 4px 8px rgba(0,0,0,0.42)",
+        }}
+        onClick={() => toggleSidebar()}
+      >
         {isSidebarOpen ? "x" : "+"}
       </button>
       <nav className={isSidebarOpen ? "mobileOpen" : ""}>

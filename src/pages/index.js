@@ -7,9 +7,9 @@ import styled from "styled-components"
 
 const CardGrid = styled.div`
   display: grid;
-  grid-template-columns: ${props => `repeat(${props.columnCount}, 1fr)`};
-  grid-template-rows: ${props => `repeat(${props.rowCount}, 200px)`};
-  grid-column-gap: ${props => `${props.columnGap}px`};
+  grid-template-columns: ${(props) => `repeat(${props.columnCount}, 1fr)`};
+  grid-template-rows: ${(props) => `repeat(${props.rowCount}, 200px)`};
+  grid-column-gap: ${(props) => `${props.columnGap}px`};
 
   @media (max-width: 80em) {
     padding-left: 10px;
@@ -26,26 +26,11 @@ const CardGrid = styled.div`
   }
 `
 
-const SectionHeading = styled.h1`
-  font-size: 30px;
-  margin-bottom: 50px;
-
-  @media (max-width: 80em) {
-    padding-left: 10px;
-  }
-`
-
-const CardHeading = styled.h2`
-  font-size: 20px;
-`
-
-const Container = styled.section`
+const HeroContainer = styled.section`
   width: 100vw;
   max-width: 80em;
   margin: 0 auto;
-`
 
-const HeroContainer = styled(Container)`
   padding-top: 50px;
   margin-top: 75px;
   display: flex;
@@ -57,12 +42,6 @@ const HeroContainer = styled(Container)`
 
   img {
     max-width: 50vw;
-  }
-
-  @media (max-width: 80em) {
-    h1 {
-      font-size: 48px;
-    }
   }
 
   @media (max-width: 768px) {
@@ -78,6 +57,12 @@ const HeroContainer = styled(Container)`
 
     img {
       max-width: 70vw;
+    }
+  }
+
+  @media (max-width: 80em) {
+    h1 {
+      font-size: 48px;
     }
   }
 `
@@ -99,11 +84,11 @@ export default () => (
       <img src={circuit} alt={"circuit illustration"} />
     </HeroContainer>
 
-    <Container>
-      <SectionHeading>What is Actions</SectionHeading>
+    <section className="w-screen max-w-6xl mx-auto">
+      <h1 className="text-4xl mb-16 xl:pl-2">What is Actions</h1>
       <CardGrid columnCount={2} rowCount={2} columnGap={120}>
         <div>
-          <CardHeading>Workflows at your fingertips</CardHeading>
+          <h2 className="text-xl">Workflows at your fingertips</h2>
           <p>
             Be able to trigger workflows using GitHub Actions based upon dozens
             of triggers like a git push, PR opened, issue created, scheduled
@@ -111,7 +96,7 @@ export default () => (
           </p>
         </div>
         <div>
-          <CardHeading>Your platforms, your tools</CardHeading>
+          <h2 className="text-xl">Your platforms, your tools</h2>
           <p>
             With support for hosted runners with MacOS, Ubuntu, Windows, and
             Docker, you can work the way you want to work. If it doesn't fit
@@ -119,7 +104,7 @@ export default () => (
           </p>
         </div>
         <div>
-          <CardHeading>Native CI/CD</CardHeading>
+          <h2 className="text-xl">Native CI/CD</h2>
           <p>
             Be able to have clairity when PRs are opened that your software will
             still work and when they're merged or a release is versioned, GitHub
@@ -127,30 +112,31 @@ export default () => (
           </p>
         </div>
         <div>
-          <CardHeading>Over 1000 Community Integrations</CardHeading>
+          <h2 className="text-xl">Over 1000 Community Integrations</h2>
           <p>
             With over 1000 actions in the GitHub Marketplace, you have a
             whirlwind of tools at your disposal.
           </p>
         </div>
       </CardGrid>
-    </Container>
+    </section>
     <div
       style={{
         background: "#4D4D4D",
         color: "white",
       }}
     >
-      <Container
+      <section
+        className="w-screen max-w-6xl mx-auto"
         style={{
           paddingTop: 30,
           paddingBottom: 30,
         }}
       >
-        <SectionHeading>What is GARS</SectionHeading>
+        <h1 className="text-4xl mb-16 xl:pl-2">What is GARS</h1>
         <CardGrid columnCount={3} rowCount={1} columnGap={80}>
           <div>
-            <CardHeading>Deep Dive Resources</CardHeading>
+            <h2 className="text-xl">Deep Dive Resources</h2>
             <p>
               From intro tutorials, reference guides, and API references, learn
               the Breadth of GitHub Actions
@@ -158,7 +144,7 @@ export default () => (
           </div>
 
           <div>
-            <CardHeading>Ideas to enhance your Repos</CardHeading>
+            <h2 className="text-xl">Ideas to enhance your Repos</h2>
             <p>
               From notifications on PRs, to scheduled tasks, deploy workflows,
               and many others, you can come away with ideas to build up tools
@@ -166,7 +152,7 @@ export default () => (
             </p>
           </div>
           <div>
-            <CardHeading>Curated Actions & Workflows</CardHeading>
+            <h2 className="text-xl">Curated Actions & Workflows</h2>
             <p>
               A look into some top workflows and community developed actions
               that can power up your toolchain
@@ -185,17 +171,18 @@ export default () => (
             </p>
           </div>
         </CardGrid>
-      </Container>
+      </section>
     </div>
-    <Container
+    <section
+      className="w-screen max-w-6xl mx-auto"
       style={{
         margin: "50px auto",
       }}
     >
-      <SectionHeading>Getting Started</SectionHeading>
+      <h1 className="text-4xl mb-16 xl:pl-2">Getting Started</h1>
       <CardGrid columnCount={2} rowCount={1} columnGap={120}>
         <div>
-          <CardHeading>Intro Tutorials</CardHeading>
+          <h2 className="text-xl">Intro Tutorials</h2>
           <p>
             Learn how to setup a simple CI pipeline with GitHub Actions or build
             your first Action with JS
@@ -205,7 +192,7 @@ export default () => (
           </p>
         </div>
         <div>
-          <CardHeading>Documentation</CardHeading>
+          <h2 className="text-xl">Documentation</h2>
           <p>
             Learn through guides and references all of the features of Actions.
             Workflows, Secrets, runners, and many more
@@ -215,6 +202,6 @@ export default () => (
           </p>
         </div>
       </CardGrid>
-    </Container>
+    </section>
   </Layout>
 )
