@@ -57,6 +57,12 @@ async function run() {
     }
 
     await page.addScriptTag({
+      content: `
+        window.postTitle = '${title}';
+      `,
+    })
+
+    await page.addScriptTag({
       content: ogReactComponentScript,
     })
 
