@@ -53,7 +53,7 @@ const MDXTemplate = ({ pageContext, data }) => {
           },
           {
             name: `twitter:image`,
-            content: `https://gars.dev/og-images/${ogImageTitle}.png`,
+            content: `https://gars.dev/og-images/${ogImageTitle}.jpg`,
           },
           { name: `twitter:site`, content: `@lannonbr` },
         ]}

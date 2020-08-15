@@ -47,7 +47,7 @@ async function run() {
   for (const filename of files) {
     const line = await getTitle(filename)
 
-    let [type, directFilename] = filename.split("/").slice(4)
+    let [_, directFilename] = filename.split("/").slice(4)
     directFilename = directFilename.slice(0, -4)
 
     let title = line.slice(7)
@@ -62,20 +62,21 @@ async function run() {
 
     if (!fs.existsSync(path.join(__dirname, "dist", "posts"))) {
       fs.mkdirSync(path.join(__dirname, "dist", "posts"))
-      fs.mkdirSync(path.join(__dirname, "dist", "posts", "docs"))
-      fs.mkdirSync(path.join(__dirname, "dist", "posts", "tutorial"))
     }
+
+    const screenshotPath = path.join(
+      __dirname,
+      "dist",
+      "posts",
+      `${directFilename}.jpg`
+    )
+
+    console.log(screenshotPath)
 
     await page.screenshot({
       type: "jpeg",
       quality: 75,
-      path: path.join(
-        __dirname,
-        "dist",
-        "posts",
-        type,
-        `${directFilename}.jpg`
-      ),
+      path: screenshotPath,
       clip: { x: 0, y: 0, width: 1200, height: 630 },
     })
   }

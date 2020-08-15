@@ -75,15 +75,6 @@ exports.onCreateNode = ({ actions, node, getNode, reporter }) => {
       name: "title",
       value: title,
     })
-
-    // og-image stuff
-    createPrinterNode({
-      id: node.id,
-      fileName: title,
-      outputDir: "og-images",
-      data: node,
-      component: require.resolve("./src/printer-components/article.js"),
-    })
   }
 }
 
