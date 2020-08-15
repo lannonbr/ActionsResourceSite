@@ -77,8 +77,6 @@ async function run() {
       `${directFilename}.jpg`
     )
 
-    console.log(screenshotPath)
-
     await page.screenshot({
       type: "jpeg",
       quality: 75,
