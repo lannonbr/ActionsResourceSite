@@ -22,7 +22,6 @@
     "gatsby-plugin-postcss": "^2.3.11",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sharp": "^2.6.19",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-images": "^3.3.19",
     "gatsby-source-filesystem": "^2.3.20",
     "gatsby-source-graphql": "^2.6.2",
