@@ -1,7 +1,6 @@
 const path = require("path")
 const slugify = require("@sindresorhus/slugify")
 const { createFilePath } = require("gatsby-source-filesystem")
-const { createPrinterNode } = require("gatsby-plugin-printer")
 
 // Create some fake types when Fauna isn't available
 exports.createSchemaCustomization = ({ actions }) => {

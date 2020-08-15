@@ -20,7 +20,6 @@
     "gatsby": "^2.24.4",
     "gatsby-plugin-mdx": "^1.2.27",
     "gatsby-plugin-postcss": "^2.3.11",
-    "gatsby-plugin-printer": "1.0.8",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sharp": "^2.6.19",
     "gatsby-plugin-web-font-loader": "^1.0.4",
