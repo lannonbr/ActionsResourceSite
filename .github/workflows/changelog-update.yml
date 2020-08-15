@@ -3,21 +3,67 @@ on:
   schedule:
     - cron: "0 */2 * * * "
 jobs:
-  run:
+  changelog-pull:
     runs-on: ubuntu-latest
+    outputs:
+      newPosts: ${{ steps.changelog_pull.outputs.newFaunaPostsAdded }}
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/changelog-pull-action
         id: changelog_pull
         env:
           FAUNADB_TOKEN: ${{ secrets.FAUNADB_TOKEN }}
-      - name: Build if new posts
-        if: steps.changelog_pull.outputs.newFaunaPostsAdded != 0
+  build:
+    needs: [changelog-pull]
+    if: needs.changelog-pull.outputs.newPosts != 0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           FAUNADB_TOKEN: ${{ secrets.FAUNADB_TOKEN }}
         run: |
           yarn
           yarn build
-          npx netlify-cli deploy --dir=public --prod
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: public-dir
+          path: public/
+  gen-og-images:
+    needs: [changelog-pull]
+    if: needs.changelog-pull.outputs.newPosts != 0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build files
+        run: |
+          cd .github/actions/gen-og-images-action
+          yarn
+          yarn build
+          node index.js
+      - name: Upload files
+        uses: actions/upload-artifact@v2
+        with:
+          name: og-images
+          path: .github/actions/gen-og-images-action/dist/posts/
+  deploy:
+    needs: [gen-og-images, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: get public dir
+        uses: actions/download-artifact@v2
+        with:
+          name: public-dir
+          path: public
+      - name: get og-images dir
+        uses: actions/download-artifact@v2
+        with:
+          name: og-images
+          path: public/og-images/
+      - name: deploy to netlify
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: npx netlify-cli deploy --dir=public --prod
