@@ -15,7 +15,7 @@
     "@mdx-js/mdx": "^1.6.11",
     "@mdx-js/react": "^1.6.11",
     "@sindresorhus/slugify": "^1.1.0",
-    "babel-plugin-styled-components": "^1.10.7",
+    "@tailwindcss/typography": "^0.2.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.24.4",
     "gatsby-plugin-mdx": "^1.2.27",
@@ -23,7 +23,6 @@
     "gatsby-plugin-printer": "1.0.8",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sharp": "^2.6.19",
-    "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-images": "^3.3.19",
     "gatsby-source-filesystem": "^2.3.20",
@@ -35,7 +34,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.1.1",
     "tailwindcss": "^1.6.2"
   },
   "devDependencies": {

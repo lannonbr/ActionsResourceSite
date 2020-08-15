@@ -1,8 +1,15 @@
 module.exports = {
   purge: ["src/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      padding: {
+        "80": "20rem",
+      },
+      width: {
+        "80": "20rem",
+      },
+    },
   },
   variants: {},
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }

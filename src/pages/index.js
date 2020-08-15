@@ -3,69 +3,6 @@ import Layout from "../components/layout"
 import Helmet from "react-helmet"
 import circuit from "../images/circuit.svg"
 import ColoredLink from "../components/ColoredLink"
-import styled from "styled-components"
-
-const CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) => `repeat(${props.columnCount}, 1fr)`};
-  grid-template-rows: ${(props) => `repeat(${props.rowCount}, 200px)`};
-  grid-column-gap: ${(props) => `${props.columnGap}px`};
-
-  @media (max-width: 80em) {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: unset;
-
-    div {
-      margin-bottom: 30px;
-    }
-  }
-`
-
-const HeroContainer = styled.section`
-  width: 100vw;
-  max-width: 80em;
-  margin: 0 auto;
-
-  padding-top: 50px;
-  margin-top: 75px;
-  display: flex;
-  align-items: center;
-
-  h1 {
-    font-size: 56px;
-  }
-
-  img {
-    max-width: 50vw;
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    margin-bottom: 50px;
-    margin-top: 25px;
-
-    h1 {
-      font-size: 36px;
-      max-width: 80vw;
-      margin-bottom: 30px;
-    }
-
-    img {
-      max-width: 70vw;
-    }
-  }
-
-  @media (max-width: 80em) {
-    h1 {
-      font-size: 48px;
-    }
-  }
-`
 
 export default () => (
   <Layout>
@@ -73,20 +10,20 @@ export default () => (
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
     </Helmet>
-    <HeroContainer>
-      <h1
-        style={{
-          textAlign: "center",
-        }}
-      >
+    <div className="flex flex-col items-center mx-auto max-w-5xl my-12 md:mt-16 md:mb-0 md:pt-12 md:flex-row">
+      <h1 className="text-4xl text-center max-w-3xl md:max-w-4xl mb-8 md:mb-0 md:text-5xl xl:text-6xl">
         Bring Intelligence to your Repos with GitHub Actions
       </h1>
-      <img src={circuit} alt={"circuit illustration"} />
-    </HeroContainer>
+      <img
+        className="max-w-sm md:max-w-lg"
+        src={circuit}
+        alt={"circuit illustration"}
+      />
+    </div>
 
-    <section className="w-screen max-w-6xl mx-auto">
+    <section className="w-screen max-w-3xl md:max-w-5xl mx-auto">
       <h1 className="text-4xl mb-16 xl:pl-2">What is Actions</h1>
-      <CardGrid columnCount={2} rowCount={2} columnGap={120}>
+      <div className="grid grid-cols-1 row-gap-4 mb-16 md:gap-16 md:grid-cols-2">
         <div>
           <h2 className="text-xl">Workflows at your fingertips</h2>
           <p>
@@ -118,23 +55,12 @@ export default () => (
             whirlwind of tools at your disposal.
           </p>
         </div>
-      </CardGrid>
+      </div>
     </section>
-    <div
-      style={{
-        background: "#4D4D4D",
-        color: "white",
-      }}
-    >
-      <section
-        className="w-screen max-w-6xl mx-auto"
-        style={{
-          paddingTop: 30,
-          paddingBottom: 30,
-        }}
-      >
+    <div className="text-white bg-gray-900">
+      <section className="mx-auto px-2 py-8 md:max-w-5xl">
         <h1 className="text-4xl mb-16 xl:pl-2">What is GARS</h1>
-        <CardGrid columnCount={3} rowCount={1} columnGap={80}>
+        <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-24">
           <div>
             <h2 className="text-xl">Deep Dive Resources</h2>
             <p>
@@ -170,17 +96,12 @@ export default () => (
               </span>
             </p>
           </div>
-        </CardGrid>
+        </div>
       </section>
     </div>
-    <section
-      className="w-screen max-w-6xl mx-auto"
-      style={{
-        margin: "50px auto",
-      }}
-    >
+    <section className="mx-auto px-2 py-8 md:max-w-5xl">
       <h1 className="text-4xl mb-16 xl:pl-2">Getting Started</h1>
-      <CardGrid columnCount={2} rowCount={1} columnGap={120}>
+      <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-24">
         <div>
           <h2 className="text-xl">Intro Tutorials</h2>
           <p>
@@ -201,7 +122,7 @@ export default () => (
             <ColoredLink to={"/docs/"}>Go To Docs</ColoredLink>
           </p>
         </div>
-      </CardGrid>
+      </div>
     </section>
   </Layout>
 )

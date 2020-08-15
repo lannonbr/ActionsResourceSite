@@ -5,7 +5,6 @@ import Helmet from "react-helmet"
 import Sidebar from "../components/sidebar"
 import { DocsSidebar, TutorialSidebar } from "../utils/sidebar-list"
 import Layout from "../components/layout"
-import SidebarPageContainer from "../components/SidebarPageContainer"
 import GuideList from "../components/GuideList"
 
 const getItemListBasedOnSlug = (slug) => {
@@ -62,9 +61,9 @@ const MDXTemplate = ({ pageContext, data }) => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Helmet>
-      <SidebarPageContainer>
+      <div className="flex mt-12">
         <Sidebar itemList={itemList} />
-        <div className="content">
+        <div className="prose w-full max-w-4xl pl-2 pr-2 my-5 mx-auto md:pl-80">
           <h1>{data.mdx.frontmatter.title}</h1>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
           {data.mdx.frontmatter.guidelist && guidelistItems && (
@@ -77,7 +76,7 @@ const MDXTemplate = ({ pageContext, data }) => {
             Edit this page on GitHub
           </a>
         </div>
-      </SidebarPageContainer>
+      </div>
     </Layout>
   )
 }

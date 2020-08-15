@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import Sidebar from "../components/sidebar"
 import { DocsSidebar } from "../utils/sidebar-list"
-import SidebarPageContainer from "../components/SidebarPageContainer"
 import Helmet from "react-helmet"
 import ColoredLink from "../components/ColoredLink"
 
@@ -13,9 +12,9 @@ export default () => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Helmet>
-      <SidebarPageContainer>
+      <div className="flex mt-12">
         <Sidebar itemList={DocsSidebar} />
-        <div className="content">
+        <div className="w-full max-w-4xl pl-2 pr-2 my-5 mx-auto md:pl-80">
           <h1>Docs</h1>
           <p>
             GitHub Actions provides APIs and tools to create automation
@@ -47,7 +46,7 @@ export default () => {
             Go to External Resources
           </ColoredLink>
         </div>
-      </SidebarPageContainer>
+      </div>
     </Layout>
   )
 }
