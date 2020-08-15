@@ -72,6 +72,12 @@ exports.onCreateNode = ({ actions, node, getNode, reporter }) => {
 
     actions.createNodeField({
       node,
+      name: "ogFilename",
+      value: node.fileAbsolutePath.split("/").pop().slice(0, -4),
+    })
+
+    actions.createNodeField({
+      node,
       name: "title",
       value: title,
     })

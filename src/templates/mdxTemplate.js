@@ -31,7 +31,7 @@ const getSubItems = (list, title) => {
 }
 
 const MDXTemplate = ({ pageContext, data }) => {
-  let ogImageTitle = data.mdx.fields.title
+  let ogImageTitle = data.mdx.fields.ogFilename
   let itemList = getItemListBasedOnSlug(pageContext.slug)
 
   let githubURL = `https://github.com/lannonbr/ActionsResourceSite/blob/master/docs/${data.mdx.parent.relativePath}`
@@ -89,6 +89,7 @@ export const query = graphql`
       body
       fields {
         title
+        ogFilename
       }
       frontmatter {
         title
