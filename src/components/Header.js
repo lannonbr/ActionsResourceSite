@@ -1,28 +1,28 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 export default () => (
   <header className="flex fixed items-center justify-start px-5 w-full h-12 bg-black z-10">
     <h1 className="text-lg">
-      <Link className="no-underline text-white" to={"/"}>
+      <a className="no-underline text-white" href="/">
         <abbr title={`GitHub Actions Resource Site`}>GARS</abbr>
-      </Link>
+      </a>
     </h1>
     <ul className="pl-0 list-none flex">
       <li className="ml-5 text-lg">
-        <Link className="no-underline text-white" to={"/docs/"}>
+        <a className="no-underline text-white" href="/docs.html">
           Docs
-        </Link>
+        </a>
       </li>
       <li className="ml-5 text-lg">
-        <Link className="no-underline text-white" to={"/tutorial/"}>
+        <a className="no-underline text-white" href="/tutorial.html">
           Tutorials
-        </Link>
+        </a>
       </li>
       <li className="ml-5 text-lg">
-        <Link className="no-underline text-white" to={"/changelog/"}>
+        <a className="no-underline text-white" href="/changelog">
           Changelog
-        </Link>
+        </a>
       </li>
     </ul>
   </header>

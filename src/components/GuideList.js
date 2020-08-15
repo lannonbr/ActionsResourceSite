@@ -1,5 +1,5 @@
 import React from "react"
-import ColoredLink from "./ColoredLink"
+import ColoredLink from "./ColoredLink.js"
 
 export default ({ items }) => (
   <React.Fragment>
@@ -7,7 +7,7 @@ export default ({ items }) => (
     <ul className="my-3">
       {items.map((item) => (
         <li style={{ lineHeight: 1.6 }} key={"guidelist-item:" + item.title}>
-          <ColoredLink to={item.link}>
+          <ColoredLink href={item.link}>
             {item.title.replace(/\*$/, "")}
           </ColoredLink>
         </li>

@@ -1,13 +1,14 @@
-import React from "react"
-import Layout from "../components/layout"
-import Sidebar from "../components/sidebar"
-import { DocsSidebar } from "../utils/sidebar-list"
+/** @jsx h */
+import { h, Fragment } from "preact"
 import Helmet from "react-helmet"
-import ColoredLink from "../components/ColoredLink"
+
+import Sidebar from "../components/sidebar.js"
+import { DocsSidebar } from "../utils/sidebar-list.js"
+import ColoredLink from "../components/ColoredLink.js"
 
 export default () => {
   return (
-    <Layout>
+    <Fragment>
       <Helmet title={"Docs | GARS"}>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -28,7 +29,9 @@ export default () => {
             Actions. From finding actions, learning how to interact with
             GitHub's API, using environment variables and secrets and many more.
           </p>
-          <ColoredLink to={"/docs/guides/"}>Go to Reference Guides</ColoredLink>
+          <ColoredLink href={"/docs/guides/"}>
+            Go to Reference Guides
+          </ColoredLink>
           <h2 style={{ marginTop: 16 }}>Internals</h2>
           <p>
             This section of docs will dive into the deeper workings of how
@@ -36,17 +39,17 @@ export default () => {
             that are used to create actions and workflows, to learning about the
             expression syntax and even the runners your workflows run on.
           </p>
-          <ColoredLink to={"/docs/internals/"}>Go to Internals</ColoredLink>
+          <ColoredLink href={"/docs/internals/"}>Go to Internals</ColoredLink>
           <h2 style={{ marginTop: 16 }}>External Resources</h2>
           <p>
             Alongside all the content here, I have curated content about Actions
             from the greater community.
           </p>
-          <ColoredLink to={"/docs/external-resources/"}>
+          <ColoredLink href={"/docs/external-resources/"}>
             Go to External Resources
           </ColoredLink>
         </div>
       </div>
-    </Layout>
+    </Fragment>
   )
 }

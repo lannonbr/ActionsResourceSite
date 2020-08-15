@@ -1,4 +1,4 @@
-import DocsSidebar from "../data/sidebars/docs-sidebar.yml"
-import TutorialSidebar from "../data/sidebars/tutorial-sidebar.yml"
+import DocsSidebar from "../data/sidebars/docs-sidebar.js"
+import TutorialSidebar from "../data/sidebars/tutorial-sidebar.js"
 
 export { DocsSidebar, TutorialSidebar }

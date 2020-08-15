@@ -1,38 +1,42 @@
 {
   "name": "actions-resource-site",
   "private": true,
-  "description": "A Gatsby site for documentation, tips, and other info about GitHub Actions",
+  "description": "A Toast site for documentation, tips, and other info about GitHub Actions",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "yarn build:css && toast incremental",
+    "incremental": "toast incremental",
+    "build:css": "NODE_ENV=production tailwindcss build src/styles/tailwind.css --output public/style.css",
+    "clean": "rm -rf public .cache && yarn prepare",
+    "prepare": "breadbox --dest public/web_modules",
+    "breadbox": "breadbox --dest public/web_modules",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "npx http-server -p 8000 public"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.11",
-    "@mdx-js/react": "^1.6.11",
+    "@mdx-js/preact": "^1.6.16",
+    "@sector/breadbox": "^0.0.4",
     "@sindresorhus/slugify": "^1.1.0",
     "@tailwindcss/typography": "^0.2.0",
+    "cloudinary": "^1.22.0",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.24.4",
-    "gatsby-plugin-mdx": "^1.2.27",
-    "gatsby-plugin-postcss": "^2.3.11",
-    "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-sharp": "^2.6.19",
-    "gatsby-remark-images": "^3.3.19",
-    "gatsby-source-filesystem": "^2.3.20",
-    "gatsby-source-graphql": "^2.6.2",
-    "gatsby-transformer-sharp": "^2.5.11",
-    "mdx-utils": "^0.2.0",
+    "globby": "^11.0.1",
+    "gray-matter": "^4.0.2",
     "moment": "^2.27.0",
+    "node-fetch": "^2.6.0",
+    "parse-numeric-range": "^1.2.0",
+    "preact": "^10.4.7",
+    "preact-render-to-string": "^5.1.10",
     "prism-react-renderer": "^1.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "prismjs": "^1.21.0",
     "react-helmet": "^6.1.0",
-    "tailwindcss": "^1.6.2"
+    "rehype-local-image-to-cloudinary": "^1.0.2",
+    "rehype-slug": "^3.0.0",
+    "tailwindcss": "^1.6.2",
+    "toast": "^0.2.9",
+    "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
@@ -43,5 +47,22 @@
   },
   "bugs": {
     "url": "https://github.com/lannonbr/ActionsResourceSite/issues"
+  },
+  "snowpack": {
+    "exclude": [
+      "public/**"
+    ],
+    "installOptions": {
+      "alias": {
+        "react": "preact/compat"
+      }
+    },
+    "knownEntrypoints": [
+      "preact",
+      "preact/hooks",
+      "@mdx-js/preact",
+      "preact/compat",
+      "react-helmet"
+    ]
   }
 }

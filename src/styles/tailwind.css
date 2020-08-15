@@ -22,5 +22,26 @@ h1 {
   font-family: var(--headerFont);
 }
 
+.toast-highlight {
+  background-color: #011627;
+  overflow: auto;
+}
+
+.toast-highlight pre[class*="language-"] {
+  background-color: transparent;
+  float: left;
+  min-width: 100%;
+}
+
+.highlight-line {
+  background-color: rgb(53, 59, 69);
+  display: block;
+  margin-right: -1.4em;
+  margin-left: -1.4em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.5em solid #81cfe0;
+}
+
 @tailwind components;
 @tailwind utilities;

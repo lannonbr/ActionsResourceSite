@@ -1,12 +1,13 @@
 # GARS (GitHub Actions Resource Site)
 
-A Gatsby site for documentation, tips, and other info about GitHub Actions
+A Toast site for documentation, tips, and other info about GitHub Actions
 
 # Setup
 
 1. Clone this repo
-1. install dependencies: `yarn install`
-1. start the dev server: `yarn develop`
+1. Install dependencies: `yarn install`
+1. Build the site: `yarn develop`
+1. Open the site: `yarn serve`
 
 Note: The changelog page sources it's content from FaunaDB, but you don't need to setup Fauna to work with this repo. If you don't set a `FAUNADB_TOKEN` environment variable, The changelog page will just be empty but you still can work with the rest of the site. In a future update I will make it so if you want to make changes to the changelog page you can have some mock data to play around with.
 

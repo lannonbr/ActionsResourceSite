@@ -1,13 +1,13 @@
-import React from "react"
-import Layout from "../components/layout"
-import Sidebar from "../components/sidebar"
-import { TutorialSidebar } from "../utils/sidebar-list"
+/** @jsx h */
+import { h, Fragment } from "preact"
+import Sidebar from "../components/sidebar.js"
+import { TutorialSidebar } from "../utils/sidebar-list.js"
 import Helmet from "react-helmet"
-import ColoredLink from "../components/ColoredLink"
+import ColoredLink from "../components/ColoredLink.js"
 
 export default () => {
   return (
-    <Layout>
+    <Fragment>
       <Helmet title={"Tutorials | GARS"}>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -35,7 +35,7 @@ export default () => {
                 you can have some safety that the project will continue to do
                 what is expected of it.
               </p>
-              <ColoredLink to={"/tutorial/ci-pipeline/"}>
+              <ColoredLink href={"/tutorial/ci-pipeline/"}>
                 Learn More
               </ColoredLink>
             </section>
@@ -47,13 +47,13 @@ export default () => {
                 workflows. This will go through creating a new Action with
                 Javascript.
               </p>
-              <ColoredLink to={"/tutorial/build-first-action/"}>
+              <ColoredLink href={"/tutorial/build-first-action/"}>
                 Learn More
               </ColoredLink>
             </section>
           </div>
         </div>
       </div>
-    </Layout>
+    </Fragment>
   )
 }

@@ -1,11 +1,11 @@
-import React from "react"
-import Layout from "../components/layout"
+/** @jsx h */
 import Helmet from "react-helmet"
-import circuit from "../images/circuit.svg"
-import ColoredLink from "../components/ColoredLink"
+import Circuit from "../images/circuit.js"
+import ColoredLink from "../components/ColoredLink.js"
+import { h, Fragment } from "preact"
 
 export default () => (
-  <Layout>
+  <Fragment>
     <Helmet title={"Home | GARS"}>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -14,11 +14,12 @@ export default () => (
       <h1 className="text-4xl text-center max-w-3xl md:max-w-4xl mb-8 md:mb-0 md:text-5xl xl:text-6xl">
         Bring Intelligence to your Repos with GitHub Actions
       </h1>
-      <img
+      {/* <img
         className="max-w-sm md:max-w-lg"
         src={circuit}
         alt={"circuit illustration"}
-      />
+      /> */}
+      <Circuit />
     </div>
 
     <section className="w-screen max-w-3xl md:max-w-5xl mx-auto">
@@ -109,7 +110,7 @@ export default () => (
             your first Action with JS
           </p>
           <p>
-            <ColoredLink to={"/tutorial/"}>Go To Tutorials</ColoredLink>
+            <ColoredLink href={"/tutorial/"}>Go To Tutorials</ColoredLink>
           </p>
         </div>
         <div>
@@ -119,10 +120,10 @@ export default () => (
             Workflows, Secrets, runners, and many more
           </p>
           <p>
-            <ColoredLink to={"/docs/"}>Go To Docs</ColoredLink>
+            <ColoredLink href={"/docs/"}>Go To Docs</ColoredLink>
           </p>
         </div>
       </div>
     </section>
-  </Layout>
+  </Fragment>
 )

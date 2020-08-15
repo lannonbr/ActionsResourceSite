@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 const genLinks = (itemList) => {
   return (
@@ -9,18 +9,18 @@ const genLinks = (itemList) => {
 
         return (
           <li className="w-80 pl-2" key={"sidebar-item:" + item.title}>
-            <Link
+            <a
               className={
                 isStub
                   ? "text-gray-700 no-underline flex items-center h-12 pl-5 hover:bg-gray-200"
                   : "no-underline flex items-center h-12 pl-5 hover:bg-gray-200"
               }
-              to={item.link}
+              href={item.link}
             >
               {item.title.replace(/\*$/, "")}
               &nbsp;
               {isStub ? <sub>(stub)</sub> : ""}
-            </Link>
+            </a>
             {/* add a new unordered list nested in a item if it has sub-pages */}
             {item.items && (
               <ul className="list-none pl-0 h-full">{genLinks(item.items)}</ul>
