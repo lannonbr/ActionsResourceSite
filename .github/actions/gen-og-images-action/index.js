@@ -58,7 +58,7 @@ async function run() {
 
     await page.addScriptTag({
       content: `
-        window.postTitle = '${title}';
+        window.pageTitle = '${title}';
       `,
     })
 
