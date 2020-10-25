@@ -1,5 +1,4 @@
-import React from "react"
-// import { Link } from "gatsby"
+import { h } from "preact"
 
 export default () => (
   <header className="flex fixed items-center justify-start px-5 w-full h-12 bg-black z-10">

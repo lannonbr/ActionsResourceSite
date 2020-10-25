@@ -1,9 +1,9 @@
 /** @jsx h */
 import { h, Fragment } from "preact"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 
 import Sidebar from "../components/sidebar.js"
-import { DocsSidebar } from "../utils/sidebar-list.js"
+import { DocsSidebar } from "../sidebar-list.js"
 import ColoredLink from "../components/ColoredLink.js"
 
 export default () => {

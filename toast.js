@@ -1,31 +1,15 @@
 // Code credit to Chris Biscardi
 
-const { promises: fs } = require("fs")
-const path = require("path")
-const MDXPostsSource = require("./fetch-mdx-posts")
-const FaunaDataSource = require("./fetch-fauna-changelog-data")
+import * as MDXPostsSource from "./fetch-mdx-posts.js"
+import * as FaunaDataSource from "./fetch-fauna-changelog-data.js"
 
-exports.sourceData = async ({ withCache, createPage }) => {
-  return Promise.all([
-    withCache("mdx-posts", MDXPostsSource.sourceData({ createPage })),
-    withCache("fauna-changelog-entries", FaunaDataSource.sourceData({})),
+export const sourceData = async ({ setDataForSlug }) => {
+  const [mdxPosts, faunaData] = await Promise.all([
+    MDXPostsSource.sourceData({ setDataForSlug }),
+    FaunaDataSource.sourceData({}),
   ])
-}
 
-exports.prepData = async ({ cacheDir, publicDir }) => {
-  // have to make sure the directory we want to write in exists
-  // We can probably avoid this by offering some kind of "non-filesystem"-based
-  // API for adding data to paths
-  await fs.mkdir(path.resolve(publicDir, "src/pages"), { recursive: true })
-
-  // Generate fauna json page
-  const faunaData = require(path.resolve(
-    cacheDir,
-    "fauna-changelog-entries.json"
-  ))
-
-  await fs.writeFile(
-    path.resolve(publicDir, "src/pages/changelog.json"),
-    JSON.stringify({ fauna: faunaData })
-  )
+  await setDataForSlug("/changelog", {
+    data: { fauna: faunaData },
+  })
 }

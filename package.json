@@ -5,41 +5,42 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn build:css && toast incremental",
-    "incremental": "toast incremental",
-    "build:css": "NODE_ENV=production tailwindcss build src/styles/tailwind.css --output public/style.css",
+    "build": "yarn build:css && toast incremental .",
+    "incremental": "toast incremental .",
+    "build:css": "NODE_ENV=production tailwindcss build src/styles/tailwind.css --config utils/tailwind.config.js --output public/style.css",
     "clean": "rm -rf public .cache && yarn prepare",
     "prepare": "breadbox --dest public/web_modules",
     "breadbox": "breadbox --dest public/web_modules",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "serve": "npx http-server -p 8000 public"
+    "serve": "http-server -p 8000 public"
   },
+  "type": "module",
   "dependencies": {
-    "@mdx-js/mdx": "^1.6.11",
-    "@mdx-js/preact": "^1.6.16",
+    "@mdx-js/mdx": "^2.0.0-next.8",
+    "@mdx-js/preact": "^2.0.0-next.8",
     "@sector/breadbox": "^0.0.4",
     "@sindresorhus/slugify": "^1.1.0",
     "@tailwindcss/typography": "^0.2.0",
-    "cloudinary": "^1.22.0",
     "dotenv": "^8.2.0",
     "globby": "^11.0.1",
     "gray-matter": "^4.0.2",
-    "moment": "^2.27.0",
-    "node-fetch": "^2.6.0",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
     "parse-numeric-range": "^1.2.0",
-    "preact": "^10.4.7",
+    "preact": "^10.5.4",
     "preact-render-to-string": "^5.1.10",
     "prism-react-renderer": "^1.1.1",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.22.0",
     "react-helmet": "^6.1.0",
-    "rehype-local-image-to-cloudinary": "^1.0.2",
+    "rehype-local-image-to-cloudinary": "^1.0.3",
     "rehype-slug": "^3.0.0",
-    "tailwindcss": "^1.6.2",
-    "toast": "^0.2.9",
+    "tailwindcss": "^1.9.6",
+    "toast": "^0.3.22",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "http-server": "^0.12.3",
+    "prettier": "^2.1.2"
   },
   "repository": {
     "type": "git",
@@ -50,7 +51,10 @@
   },
   "snowpack": {
     "exclude": [
-      "public/**"
+      "public/**",
+      "toast.js",
+      "utils/**",
+      "fetch-*.js"
     ],
     "installOptions": {
       "alias": {

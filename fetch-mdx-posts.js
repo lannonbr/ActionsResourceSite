@@ -1,15 +1,15 @@
 // Code credit to Chris Biscardi
 
-const fs = require("fs").promises
-const path = require("path")
-const frontmatter = require("gray-matter")
-const mdx = require("@mdx-js/mdx")
-const rehypeSlug = require("rehype-slug")
-const cloudinary = require("rehype-local-image-to-cloudinary")
-const rehypePrism = require("./src/utils/prism-rehype-plugin")
-const globby = require("globby")
+import { promises as fs } from "fs"
+import path from "path"
+import frontmatter from "gray-matter"
+import mdx from "@mdx-js/mdx"
+import globby from "globby"
+import rehypePrism from "./utils/prism-rehype-plugin/index.js"
+import cloudinary from "rehype-local-image-to-cloudinary"
+import rehypeSlug from "rehype-slug"
 
-exports.sourceData = async ({ createPage, ...options }) => {
+export const sourceData = async ({ setDataForSlug, ...options }) => {
   console.log("sourceData")
   const files = await globby("./docs/**/*.mdx")
 
@@ -30,7 +30,7 @@ exports.sourceData = async ({ createPage, ...options }) => {
             [
               cloudinary,
               {
-                baseDir: path.join(__dirname, "docs", type),
+                baseDir: path.join(".", "docs", type),
                 uploadFolder: "gars.dev",
               },
             ],
@@ -43,11 +43,13 @@ exports.sourceData = async ({ createPage, ...options }) => {
 
       const slug = filename.split("/").slice(2).join("/").slice(0, -4)
 
-      await createPage({
-        module: `/** @jsx mdx */
-        import {mdx} from '@mdx-js/preact';
-        ${compiledMDX}`,
-        slug,
+      await setDataForSlug(slug, {
+        component: {
+          mode: "source",
+          value: `/** @jsx mdx */
+          import {mdx} from '@mdx-js/preact';
+          ${compiledMDX}`,
+        },
         data: { ...data, slug },
       })
 

@@ -1,8 +1,9 @@
-import React from "react"
+
+import { h, Fragment } from "preact"
 import ColoredLink from "./ColoredLink.js"
 
 export default ({ items }) => (
-  <React.Fragment>
+  <Fragment>
     <h2>Subpages</h2>
     <ul className="my-3">
       {items.map((item) => (
@@ -13,5 +14,5 @@ export default ({ items }) => (
         </li>
       ))}
     </ul>
-  </React.Fragment>
+  </Fragment>
 )

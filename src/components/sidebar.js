@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-// import { Link } from "gatsby"
+import { h, Fragment } from "preact"
+import { useState } from "preact/hooks"
 
 const genLinks = (itemList) => {
   return (
-    <React.Fragment>
+    <Fragment>
       {itemList.map((item) => {
         const isStub = item.title.endsWith("*")
 
@@ -28,7 +28,7 @@ const genLinks = (itemList) => {
           </li>
         )
       })}
-    </React.Fragment>
+    </Fragment>
   )
 }
 

@@ -1,5 +1,5 @@
 /** @jsx h */
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import Circuit from "../images/circuit.js"
 import ColoredLink from "../components/ColoredLink.js"
 import { h, Fragment } from "preact"

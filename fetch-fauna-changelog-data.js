@@ -1,7 +1,8 @@
-const fetch = require("node-fetch")
-require("dotenv").config()
+import fetch from "node-fetch"
+import dotenv from "dotenv"
+dotenv.config()
 
-exports.sourceData = async (options) => {
+export const sourceData = async (options) => {
   const data = await fetch("https://graphql.fauna.com/graphql", {
     headers: {
       Authorization: `Bearer ${process.env.FAUNADB_TOKEN}`,

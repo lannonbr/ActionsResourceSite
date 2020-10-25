@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "commonjs",
   "dependencies": {
     "@actions/core": "^1.2.0",
     "cheerio": "^1.0.0-rc.3",

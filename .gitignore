@@ -54,8 +54,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# gatsby files
-.cache/
+# Toast files
+.tmp/
 public
 
 # Mac files

@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h, Fragment } from "preact"
 import moment from "moment"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 
 const ChangelogPage = (props) => {
   if (props.fauna) {

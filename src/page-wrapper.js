@@ -3,7 +3,7 @@ import { h } from "preact"
 import { Helmet } from "react-helmet"
 import { MDXProvider } from "@mdx-js/preact"
 import Header from "./components/Header.js"
-import { DocsSidebar, TutorialSidebar } from "./utils/sidebar-list.js"
+import { DocsSidebar, TutorialSidebar } from "./sidebar-list.js"
 import GuideList from "./components/GuideList.js"
 import Sidebar from "./components/sidebar.js"
 
@@ -31,7 +31,7 @@ const getSubItems = (list, title) => {
 }
 
 const Layout = ({ children, ...props }) => {
-  let { title, slug } = props
+  let { slug } = props
 
   let type
   let filename
@@ -45,13 +45,13 @@ const Layout = ({ children, ...props }) => {
 
     githubURL = `https://github.com/lannonbr/ActionsResourceSite/blob/master/docs/${slug}.mdx`
     itemList = getItemListBasedOnSlug(slug)
-    guidelistItems = getSubItems(itemList, title)
+    guidelistItems = getSubItems(itemList, props.title)
   }
 
   return (
     <div id="pageWrapper" className="grid min-h-screen max-w-full">
       <Header />
-      <Helmet>
+      <Helmet title={props.title && props.title}>
         <link
           href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap"
           rel="stylesheet"
@@ -59,9 +59,8 @@ const Layout = ({ children, ...props }) => {
         <link rel="stylesheet" href="/style.css" />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {title && <title>{title + " | GARS"}</title>}
         {slug && <meta name="twitter:card" content="summary_large_image" />}
-        {slug && <meta name="twitter:title" content={title + " | GARS"} />}
+        {slug && <meta name="twitter:title" content={props.title + " | GARS"} />}
         {slug && <meta name="twitter:site" content="@lannonbr" />}
         {slug && (
           <meta
@@ -102,7 +101,7 @@ const Layout = ({ children, ...props }) => {
             <div className="flex mt-12">
               <Sidebar itemList={itemList} />
               <div className="prose w-full max-w-4xl pl-2 pr-2 my-5 mx-auto md:pl-80">
-                <h1>{title}</h1>
+                <h1>{props.title}</h1>
                 {children}
                 {props.guidelist && guidelistItems && (
                   <GuideList items={guidelistItems} />
